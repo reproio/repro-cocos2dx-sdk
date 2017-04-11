@@ -1,0 +1,7 @@
+/build
+/jniLibs
+/*.iml
+/obj
+/libs/armeabi
+/libs/x86
+/local.properties

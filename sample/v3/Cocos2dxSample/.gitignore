@@ -1,0 +1,6 @@
+/proj.android-studio/local.properties
+cocos2d/cocos/platform/android/libcocos2dx/build/
+/cocos2d/cocos/platform/android/libcocos2dx/libcocos2dx.iml
+bin/
+cocos2d/build/cocos2d_libs.xcodeproj/xcuserdata
+cocos2d/build/build/
