@@ -61,8 +61,6 @@
 		521A8EAA19F11F5000D177D7 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 521A8EA819F11F5000D177D7 /* fonts */; };
 		52B47A471A53D09C004E4C60 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52B47A461A53D09B004E4C60 /* Security.framework */; };
 		8262943E1AAF051F00CB7CF7 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8262943D1AAF051F00CB7CF7 /* Security.framework */; };
-		AE00072E1E9CB20C006413CD /* Repro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE00072B1E9CB20C006413CD /* Repro.framework */; };
-		AE00072F1E9CB20C006413CD /* ReproSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = AE00072D1E9CB20C006413CD /* ReproSDKResources.bundle */; };
 		AE1675671E8E498600C904AA /* NotificationService.m in Sources */ = {isa = PBXBuildFile; fileRef = AE1675661E8E498600C904AA /* NotificationService.m */; };
 		AE16756B1E8E498600C904AA /* NotificationServiceExtenstionExample.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = AE1675631E8E498600C904AA /* NotificationServiceExtenstionExample.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		AEAD8A2D1E93CD0900F962AB /* ReproCpp.mm in Sources */ = {isa = PBXBuildFile; fileRef = AEAD8A2C1E93CD0900F962AB /* ReproCpp.mm */; };
@@ -82,6 +80,8 @@
 		D6B0611B1803AB670077942B /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6B0611A1803AB670077942B /* CoreMotion.framework */; };
 		ED545A7C1B68A1F400C3958E /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ED545A7B1B68A1F400C3958E /* libiconv.dylib */; };
 		ED545A7E1B68A1FA00C3958E /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ED545A7D1B68A1FA00C3958E /* libiconv.dylib */; };
+		F29E2C562032E18F0023E723 /* Repro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F29E2C532032E18F0023E723 /* Repro.framework */; };
+		F29E2C572032E18F0023E723 /* ReproSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F29E2C552032E18F0023E723 /* ReproSDKResources.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -196,8 +196,6 @@
 		521A8EA819F11F5000D177D7 /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fonts; sourceTree = "<group>"; };
 		52B47A461A53D09B004E4C60 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.1.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
 		8262943D1AAF051F00CB7CF7 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		AE00072B1E9CB20C006413CD /* Repro.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Repro.framework; sourceTree = "<group>"; };
-		AE00072D1E9CB20C006413CD /* ReproSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ReproSDKResources.bundle; sourceTree = "<group>"; };
 		AE1675631E8E498600C904AA /* NotificationServiceExtenstionExample.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = NotificationServiceExtenstionExample.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE1675651E8E498600C904AA /* NotificationService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationService.h; sourceTree = "<group>"; };
 		AE1675661E8E498600C904AA /* NotificationService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationService.m; sourceTree = "<group>"; };
@@ -221,6 +219,8 @@
 		D6B0611A1803AB670077942B /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/CoreMotion.framework; sourceTree = DEVELOPER_DIR; };
 		ED545A7B1B68A1F400C3958E /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.4.sdk/usr/lib/libiconv.dylib; sourceTree = DEVELOPER_DIR; };
 		ED545A7D1B68A1FA00C3958E /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
+		F29E2C532032E18F0023E723 /* Repro.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Repro.framework; sourceTree = "<group>"; };
+		F29E2C552032E18F0023E723 /* ReproSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ReproSDKResources.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -243,7 +243,7 @@
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */,
-				AE00072E1E9CB20C006413CD /* Repro.framework in Frameworks */,
+				F29E2C562032E18F0023E723 /* Repro.framework in Frameworks */,
 				BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */,
 				BF1712471292920000B8313A /* libz.dylib in Frameworks */,
 				BF1C47F01293687400B63C5D /* QuartzCore.framework in Frameworks */,
@@ -320,8 +320,8 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				F29E2C522032E18F0023E723 /* Repro.embeddedframework */,
 				AEEA28631E8D7AEE003E63F1 /* Cocos2dxSample-mobile.entitlements */,
-				AE00072A1E9CB20C006413CD /* Repro.embeddedframework */,
 				46880B8319C43A87006E1F66 /* Classes */,
 				46880B7519C43A67006E1F66 /* Resources */,
 				1AC6FAE5180E9839004C840B /* cocos2d_libs.xcodeproj */,
@@ -442,23 +442,6 @@
 			path = ios;
 			sourceTree = SOURCE_ROOT;
 		};
-		AE00072A1E9CB20C006413CD /* Repro.embeddedframework */ = {
-			isa = PBXGroup;
-			children = (
-				AE00072B1E9CB20C006413CD /* Repro.framework */,
-				AE00072C1E9CB20C006413CD /* Resources */,
-			);
-			path = Repro.embeddedframework;
-			sourceTree = "<group>";
-		};
-		AE00072C1E9CB20C006413CD /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				AE00072D1E9CB20C006413CD /* ReproSDKResources.bundle */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
 		AE1675641E8E498600C904AA /* NotificationServiceExtenstionExample */ = {
 			isa = PBXGroup;
 			children = (
@@ -467,6 +450,23 @@
 				AE1675681E8E498600C904AA /* Info.plist */,
 			);
 			path = NotificationServiceExtenstionExample;
+			sourceTree = "<group>";
+		};
+		F29E2C522032E18F0023E723 /* Repro.embeddedframework */ = {
+			isa = PBXGroup;
+			children = (
+				F29E2C532032E18F0023E723 /* Repro.framework */,
+				F29E2C542032E18F0023E723 /* Resources */,
+			);
+			path = Repro.embeddedframework;
+			sourceTree = "<group>";
+		};
+		F29E2C542032E18F0023E723 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F29E2C552032E18F0023E723 /* ReproSDKResources.bundle */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -631,7 +631,7 @@
 				5087E78417EB970100C73F5D /* Icon-57.png in Resources */,
 				5087E77E17EB970100C73F5D /* Default.png in Resources */,
 				521A8E6419F0C34300D177D7 /* Default-667h@2x.png in Resources */,
-				AE00072F1E9CB20C006413CD /* ReproSDKResources.bundle in Resources */,
+				F29E2C572032E18F0023E723 /* ReproSDKResources.bundle in Resources */,
 				46880B7B19C43A67006E1F66 /* CloseNormal.png in Resources */,
 				50EF629717ECD46A001EB2F8 /* Icon-58.png in Resources */,
 			);
