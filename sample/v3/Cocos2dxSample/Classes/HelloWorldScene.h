@@ -28,7 +28,8 @@ public:
     void repro_crash(Ref* pSender);
     void repro_disableInAppMessageOnActive(Ref* pSender);
     void repro_showInAppMessage(Ref* pSender);
-    
+    void repro_setPushRegistrationID(Ref* pSender);
+
     // implement the "static create()" method manually
     CREATE_FUNC(HelloWorld);
 };

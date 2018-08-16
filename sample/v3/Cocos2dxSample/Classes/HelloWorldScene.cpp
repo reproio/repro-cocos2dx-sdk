@@ -129,8 +129,19 @@ bool HelloWorld::init()
     auto pLabelDisableShowInAppMessageOnActive = Label::createWithTTF("DisableShowInAppMessageOnActive", "Marker Felt.ttf", 30);
     auto pBtnItemDisableShowInAppMessageOnActive = MenuItemLabel::create(pLabelDisableShowInAppMessageOnActive, CC_CALLBACK_1(HelloWorld::repro_disableInAppMessageOnActive, this));
     pBtnItemNone->setTag(7);
-    
-    Menu* pMenu2 = Menu::create(pBtnItemDebug, pBtnItemInfo, pBtnItemWarn, pBtnItemError, pBtnItemNone, pBtnItemInAppMessage, pBtnItemDisableShowInAppMessageOnActive, NULL);
+    auto pLabelSetPushRegistrationID = Label::createWithTTF("SetPushRegistrationID", "Marker Felt.ttf", 30);
+    auto pBtnItemSetPushRegistrationID = MenuItemLabel::create(pLabelSetPushRegistrationID, CC_CALLBACK_1(HelloWorld::repro_setPushRegistrationID, this));
+    pBtnItemNone->setTag(8);
+
+    Menu* pMenu2 = Menu::create(pBtnItemDebug,
+                                pBtnItemInfo,
+                                pBtnItemWarn,
+                                pBtnItemError,
+                                pBtnItemNone,
+                                pBtnItemInAppMessage,
+                                pBtnItemDisableShowInAppMessageOnActive,
+                                pBtnItemSetPushRegistrationID,
+                                NULL);
     pMenu2->setPosition(Vec2(150, s.height*0.5));
     pMenu2->alignItemsVerticallyWithPadding(10);
     this->addChild(pMenu2);
@@ -262,4 +273,10 @@ void HelloWorld::repro_showInAppMessage(Ref* pSender)
 {
     log("showInAppMessage");
     ReproCpp::showInAppMessage();
+}
+
+void HelloWorld::repro_setPushRegistrationID(Ref* pSender)
+{
+    log("setPushRegistrationID");
+    ReproCpp::setPushRegistrationID("");
 }

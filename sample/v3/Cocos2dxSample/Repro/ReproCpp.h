@@ -28,7 +28,7 @@ public:
     static void pauseRecording();
     static void resumeRecording();
 
-    // UIView Masking
+    // Masking
     static void maskWithRect(float x, float y, float width, float height, const char* key);
     static void unmaskWithRect(const char* key);
 
@@ -48,6 +48,9 @@ public:
     // In App Message
     static void disableInAppMessageOnActive();
     static void showInAppMessage();
+
+    // Push Notification
+    static void setPushRegistrationID(const char* registrationID);
 };
 
 #endif

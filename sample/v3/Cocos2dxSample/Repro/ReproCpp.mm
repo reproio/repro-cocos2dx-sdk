@@ -37,9 +37,13 @@ static NSDictionary* convertCStringJSONToNSDictionary(const char* string) {
     }
 }
 
+// Setup
+
 void ReproCpp::setup(const char* token) {
     [Repro setup:convertCStringToNSString(token)];
 }
+
+// Log Level
 
 void ReproCpp::setLogLevel(const char* logLevel) {
     if ([convertCStringToNSString(logLevel) isEqualToString:@"Debug"]) {
@@ -54,6 +58,8 @@ void ReproCpp::setLogLevel(const char* logLevel) {
         [Repro setLogLevel:RPRLogLevelNone];
     }
 }
+
+// Screen Recording
 
 void ReproCpp::startRecording() {
     [Repro startRecording];
@@ -71,6 +77,8 @@ void ReproCpp::resumeRecording() {
     [Repro resumeRecording];
 }
 
+// Masking
+
 void ReproCpp::maskWithRect(float x, float y, float width, float height, const char* key) {
     [Repro maskWithRect:CGRectMake(x,y,width,height) key:convertCStringToNSString(key)];
 }
@@ -78,6 +86,8 @@ void ReproCpp::maskWithRect(float x, float y, float width, float height, const c
 void ReproCpp::unmaskWithRect(const char* key) {
     [Repro unmaskForKey:convertCStringToNSString(key)];
 }
+
+// User Profile
 
 void ReproCpp::setUserID(const char* userId) {
     [Repro setUserID:convertCStringToNSString(userId)];
@@ -107,6 +117,8 @@ void ReproCpp::setDateUserProfile(const char* key, std::time_t value) {
   [Repro setDateUserProfile:[NSDate dateWithTimeIntervalSince1970:value] forKey:convertCStringToNSString(key)];
 }
 
+// Event Tracking
+
 void ReproCpp::track(const char* eventName) {
     [Repro track:convertCStringToNSString(eventName) properties:nil];
 }
@@ -116,10 +128,17 @@ void ReproCpp::trackWithProperties(const char* eventName, const char* jsonDictio
 }
 
 // In App Message
+
 void ReproCpp::disableInAppMessageOnActive() {
     [Repro disableInAppMessageOnActive];
 }
 
 void ReproCpp::showInAppMessage() {
     [Repro showInAppMessage];
+}
+
+// Push Notification
+
+void ReproCpp::setPushRegistrationID(const char* registrationID) {
+    // not supported in iOS
 }

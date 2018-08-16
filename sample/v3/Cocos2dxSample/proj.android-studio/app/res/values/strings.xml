@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Cocos2dxSample</string>
+    <string name="my_channel_name">MyChannelName</string>
+    <string name="my_channel_description">MyChannelDescription</string>
 </resources>

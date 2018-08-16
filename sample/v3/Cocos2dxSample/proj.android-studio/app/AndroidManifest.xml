@@ -45,6 +45,27 @@
                 <category android:name="io.repro.cocos2dx.v3.sample" />
             </intent-filter>
         </receiver>
+
+        <meta-data
+            android:name="io.repro.android.PushNotification.ChannelId"
+            android:value="my_channel_id">
+        </meta-data>
+
+        <meta-data
+            android:name="io.repro.android.PushNotification.ChannelName"
+            android:resource="@string/my_channel_name">
+        </meta-data>
+
+        <meta-data
+            android:name="io.repro.android.PushNotification.ChannelDescription"
+            android:resource="@string/my_channel_description">
+        </meta-data>
+
+        <meta-data
+            android:name="io.repro.android.PushNotification.ShowBadge"
+            android:value="true">
+        </meta-data>
+
     </application>
     
 </manifest>

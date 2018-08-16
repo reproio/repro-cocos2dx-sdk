@@ -14,6 +14,8 @@
 #define CLASS_NAME_REPRO_SDK_BRIDGE "io.repro.android.Cocos2dxBridge"
 #define CLASS_NAME_REPRO_CLIENT_BRIDGE "io.repro.cocos2dx.v3.sample.ReproBridge"
 
+// Setup
+
 void ReproCpp::setup(const char* token) {
     cocos2d::JniMethodInfo methodInfo;
     if (cocos2d::JniHelper::getStaticMethodInfo(methodInfo, CLASS_NAME_REPRO_SDK_BRIDGE, "startSession",  "(Ljava/lang/String;)V"))
@@ -26,6 +28,8 @@ void ReproCpp::setup(const char* token) {
     }
 }
 
+// Log Level
+
 void ReproCpp::setLogLevel(const char* logLevel) {
     cocos2d::JniMethodInfo methodInfo;
     if (cocos2d::JniHelper::getStaticMethodInfo(methodInfo, CLASS_NAME_REPRO_SDK_BRIDGE, "setLogLevel", "(Ljava/lang/String;)V"))
@@ -37,6 +41,8 @@ void ReproCpp::setLogLevel(const char* logLevel) {
         return;
     }
 }
+
+// Screen Recording
 
 void ReproCpp::startRecording() {
     // startRecording is not supported for Android. No operation is executed.
@@ -54,6 +60,8 @@ void ReproCpp::resumeRecording() {
     // resumeRecording is not supported for Android. No operation is executed.
 }
 
+// Masking
+
 void ReproCpp::maskWithRect(float x, float y, float width, float height, const char* key) {
     // maskWithRect is not supported for Android. No operation is executed.
 }
@@ -61,6 +69,8 @@ void ReproCpp::maskWithRect(float x, float y, float width, float height, const c
 void ReproCpp::unmaskWithRect(const char* key) {
     // unmaskWithRect is not supported for Android. No operation is executed.
 }
+
+// User Profile
 
 void ReproCpp::setUserID(const char* userId)
 {
@@ -72,7 +82,6 @@ void ReproCpp::setUserID(const char* userId)
         methodInfo.env->DeleteLocalRef(methodInfo.classID);
         return;
     }
-    
 }
 
 const char* ReproCpp::getUserID()
@@ -87,7 +96,6 @@ const char* ReproCpp::getUserID()
         return userId;
     }
     return userId;
-    
 }
 
 const char* ReproCpp::getDeviceID()
@@ -146,6 +154,8 @@ void ReproCpp::setDateUserProfile(const char* key, std::time_t value) {
     }
 }
 
+// Event Tracking
+
 void ReproCpp::track(const char* eventName) {
     cocos2d::JniMethodInfo methodInfo;
     if (cocos2d::JniHelper::getStaticMethodInfo(methodInfo, CLASS_NAME_REPRO_SDK, "track", "(Ljava/lang/String;)V")){
@@ -168,6 +178,8 @@ void ReproCpp::trackWithProperties(const char* eventName, const char* jsonDictio
     }
 }
 
+// In App Message
+
 void ReproCpp::disableInAppMessageOnActive() {
     cocos2d::JniMethodInfo methodInfo;
     if (cocos2d::JniHelper::getStaticMethodInfo(methodInfo, CLASS_NAME_REPRO_SDK, "disableInAppMessageOnActive", "()V")){
@@ -181,6 +193,19 @@ void ReproCpp::showInAppMessage() {
     cocos2d::JniMethodInfo methodInfo;
     if (cocos2d::JniHelper::getStaticMethodInfo(methodInfo, CLASS_NAME_REPRO_CLIENT_BRIDGE, "showInAppMessage", "()V")){
         methodInfo.env->CallStaticVoidMethod(methodInfo.classID, methodInfo.methodID);
+        methodInfo.env->DeleteLocalRef(methodInfo.classID);
+        return;
+    }
+}
+
+// Push Notification
+
+void ReproCpp::setPushRegistrationID(const char* registrationID) {
+    cocos2d::JniMethodInfo methodInfo;
+    if (cocos2d::JniHelper::getStaticMethodInfo(methodInfo, CLASS_NAME_REPRO_SDK, "setPushRegistrationID", "(Ljava/lang/String;)V")){
+        jstring jRegistrationID = methodInfo.env->NewStringUTF(registrationID);
+        methodInfo.env->CallStaticVoidMethod(methodInfo.classID, methodInfo.methodID, jRegistrationID);
+        methodInfo.env->DeleteLocalRef(jRegistrationID);
         methodInfo.env->DeleteLocalRef(methodInfo.classID);
         return;
     }
