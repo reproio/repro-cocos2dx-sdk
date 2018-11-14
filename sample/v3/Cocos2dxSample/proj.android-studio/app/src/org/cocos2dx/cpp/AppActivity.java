@@ -33,6 +33,6 @@ public class AppActivity extends Cocos2dxActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Repro.enablePushNotification("YOUR_SENDER_ID");
+        Repro.enablePushNotification();
     }
 }

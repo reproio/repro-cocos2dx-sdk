@@ -5,56 +5,55 @@
 //  Copyright (c) 2014 Repro Inc. All rights reserved.
 //
 
+#import <sys/utsname.h>
 #include "ReproCpp.h"
 #import <Repro/Repro.h>
+#include "ReproConverterIOS.h"
 
-static NSString* convertCStringToNSString(const char* string) {
-    if (string) {
-        return [NSString stringWithUTF8String:string];
-    } else {
-        return @"";
-    }
+// helper methods to check OS Version and Device Type
+
+float osVersion()
+{
+    return UIDevice.currentDevice.systemVersion.floatValue;
 }
 
-static const char* convertNSStringToCString(NSString* string) {
-    if (string) {
-        const char* src = [string UTF8String];
-        char* dst = (char*)malloc(strlen(src) + 1);
-        strcpy(dst, src);
-        return dst;
-    } else {
-        return "";
-    }
+NSString* device()
+{
+    struct utsname systemInfo;
+    uname(&systemInfo);
+    return [NSString stringWithCString:systemInfo.machine encoding:NSUTF8StringEncoding];
 }
 
-static NSDictionary* convertCStringJSONToNSDictionary(const char* string) {
-    if (string) {
-        NSString* json = convertCStringToNSString(string);
-        NSData* data = [json dataUsingEncoding:NSUTF8StringEncoding];
-        return [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
-    } else {
-        return nil;
+NSInteger majorIndexOfDeviceIdentifierFor(NSString* devicePrefix)
+{
+    NSString *deviceId = device(); // e.g. "iPhone9,1"
+
+    if (![deviceId hasPrefix:devicePrefix]) {
+        return 0;
     }
+
+    return [[deviceId substringFromIndex:[devicePrefix length]] integerValue];
 }
+
 
 // Setup
 
 void ReproCpp::setup(const char* token) {
-    [Repro setup:convertCStringToNSString(token)];
+    [Repro setup: repro::ReproConverterIOS::convertCStringToNSString(token) ?: @""];
 }
 
 // Log Level
 
 void ReproCpp::setLogLevel(const char* logLevel) {
-    if ([convertCStringToNSString(logLevel) isEqualToString:@"Debug"]) {
+    if ([repro::ReproConverterIOS::convertCStringToNSString(logLevel) ?: @"" isEqualToString:@"Debug"]) {
         [Repro setLogLevel:RPRLogLevelDebug];
-    } else if ([convertCStringToNSString(logLevel) isEqualToString:@"Info"]) {
+    } else if ([repro::ReproConverterIOS::convertCStringToNSString(logLevel) ?: @"" isEqualToString:@"Info"]) {
         [Repro setLogLevel:RPRLogLevelInfo];
-    } else if ([convertCStringToNSString(logLevel) isEqualToString:@"Warn"]) {
+    } else if ([repro::ReproConverterIOS::convertCStringToNSString(logLevel) ?: @"" isEqualToString:@"Warn"]) {
         [Repro setLogLevel:RPRLogLevelWarn];
-    } else if ([convertCStringToNSString(logLevel) isEqualToString:@"Error"]) {
+    } else if ([repro::ReproConverterIOS::convertCStringToNSString(logLevel) ?: @"" isEqualToString:@"Error"]) {
         [Repro setLogLevel:RPRLogLevelError];
-    } else if ([convertCStringToNSString(logLevel) isEqualToString:@"None"]) {
+    } else if ([repro::ReproConverterIOS::convertCStringToNSString(logLevel) ?: @"" isEqualToString:@"None"]) {
         [Repro setLogLevel:RPRLogLevelNone];
     }
 }
@@ -62,6 +61,14 @@ void ReproCpp::setLogLevel(const char* logLevel) {
 // Screen Recording
 
 void ReproCpp::startRecording() {
+
+    if (osVersion() >= 12.0 &&
+        majorIndexOfDeviceIdentifierFor(@"iPhone") >= 9) { // 9 means iPhone9,1 which is an iPhone 7
+        // do not start recording
+        NSLog(@"Ingore StartRecording");
+        return;
+    }
+
     [Repro startRecording];
 }
 
@@ -80,51 +87,101 @@ void ReproCpp::resumeRecording() {
 // Masking
 
 void ReproCpp::maskWithRect(float x, float y, float width, float height, const char* key) {
-    [Repro maskWithRect:CGRectMake(x,y,width,height) key:convertCStringToNSString(key)];
+    [Repro maskWithRect:CGRectMake(x,y,width,height) key: repro::ReproConverterIOS::convertCStringToNSString(key) ?: @""];
 }
 
 void ReproCpp::unmaskWithRect(const char* key) {
-    [Repro unmaskForKey:convertCStringToNSString(key)];
+    [Repro unmaskForKey: repro::ReproConverterIOS::convertCStringToNSString(key) ?: @""];
 }
 
 // User Profile
 
 void ReproCpp::setUserID(const char* userId) {
-    [Repro setUserID:convertCStringToNSString(userId)];
+    [Repro setUserID: repro::ReproConverterIOS::convertCStringToNSString(userId) ?: @""];
 }
 
 const char* ReproCpp::getUserID() {
-  return convertNSStringToCString([Repro getUserID]);
+  return repro::ReproConverterIOS::convertNSStringToCString([Repro getUserID]);
 }
 
 const char* ReproCpp::getDeviceID() {
-  return convertNSStringToCString([Repro getDeviceID]);
+  return repro::ReproConverterIOS::convertNSStringToCString([Repro getDeviceID]);
 }
 
 void ReproCpp::setStringUserProfile(const char* key, const char* value) {
-  [Repro setStringUserProfile:convertCStringToNSString(value) forKey:convertCStringToNSString(key)];
+  [Repro setStringUserProfile: repro::ReproConverterIOS::convertCStringToNSString(value) ?: @""
+                       forKey: repro::ReproConverterIOS::convertCStringToNSString(key) ?: @""];
 }
 
 void ReproCpp::setIntUserProfile(const char* key, int value) {
-  [Repro setIntUserProfile:value forKey:convertCStringToNSString(key)];
+  [Repro setIntUserProfile:value forKey: repro::ReproConverterIOS::convertCStringToNSString(key) ?: @""];
 }
 
 void ReproCpp::setDoubleUserProfile(const char* key, double value) {
-  [Repro setDoubleUserProfile:value forKey:convertCStringToNSString(key)];
+  [Repro setDoubleUserProfile:value forKey: repro::ReproConverterIOS::convertCStringToNSString(key) ?: @""];
 }
 
 void ReproCpp::setDateUserProfile(const char* key, std::time_t value) {
-  [Repro setDateUserProfile:[NSDate dateWithTimeIntervalSince1970:value] forKey:convertCStringToNSString(key)];
+  [Repro setDateUserProfile:[NSDate dateWithTimeIntervalSince1970:value]
+                     forKey: repro::ReproConverterIOS::convertCStringToNSString(key) ?: @""];
+}
+
+// Standard Event Tracking
+
+void ReproCpp::trackViewContent(const char* contentId, repro::ViewContentProperties* properties) {
+    [Repro trackViewContent: repro::ReproConverterIOS::convertCStringToNSString(contentId) ?: @""
+                 properties: repro::ReproConverterIOS::convertToViewContentProperties(properties)];
+}
+
+void ReproCpp::trackSearch(repro::SearchProperties* properties) {
+    [Repro trackSearch: repro::ReproConverterIOS::convertToSearchProperties(properties)];
+}
+
+void ReproCpp::trackAddToCart(const char* contentId, repro::AddToCartProperties* properties) {
+    [Repro trackAddToCart: repro::ReproConverterIOS::convertCStringToNSString(contentId) ?: @""
+               properties: repro::ReproConverterIOS::convertToAddToCartProperties(properties)];
+}
+
+void ReproCpp::trackAddToWishlist(repro::AddToWishlistProperties* properties) {
+    [Repro trackAddToWishlist: repro::ReproConverterIOS::convertToAddToWishlistProperties(properties)];
+}
+
+void ReproCpp::trackInitiateCheckout(repro::InitiateCheckoutProperties* properties) {
+    [Repro trackInitiateCheckout: repro::ReproConverterIOS::convertToInitiateCheckoutProperties(properties)];
+}
+
+void ReproCpp::trackAddPaymentInfo(repro::AddPaymentInfoProperties* properties) {
+    [Repro trackAddPaymentInfo: repro::ReproConverterIOS::convertToAddPaymentInfoProperties(properties)];
+}
+
+void ReproCpp::trackPurchase(const char* contentId, double value, const char* currency, repro::PurchaseProperties* properties) {
+    [Repro trackPurchase: repro::ReproConverterIOS::convertCStringToNSString(contentId) ?: @""
+                   value: value
+                currency: repro::ReproConverterIOS::convertCStringToNSString(currency) ?: @""
+              properties: repro::ReproConverterIOS::convertToPurchaseProperties(properties)];
+}
+
+void ReproCpp::trackShare(repro::ShareProperties* properties) {
+    [Repro trackShare: repro::ReproConverterIOS::convertToShareProperties(properties)];
+}
+
+void ReproCpp::trackLead(repro::LeadProperties* properties) {
+    [Repro trackLead: repro::ReproConverterIOS::convertToLeadProperties(properties)];
+}
+
+void ReproCpp::trackCompleteRegistration(repro::CompleteRegistrationProperties *properties) {
+    [Repro trackCompleteRegistration: repro::ReproConverterIOS::convertToCompleteRegistrationProperties(properties)];
 }
 
 // Event Tracking
 
 void ReproCpp::track(const char* eventName) {
-    [Repro track:convertCStringToNSString(eventName) properties:nil];
+    [Repro track: repro::ReproConverterIOS::convertCStringToNSString(eventName) ?: @"" properties:nil];
 }
 
 void ReproCpp::trackWithProperties(const char* eventName, const char* jsonDictionary) {
-    [Repro track:convertCStringToNSString(eventName) properties:convertCStringJSONToNSDictionary(jsonDictionary)];
+    [Repro track: repro::ReproConverterIOS::convertCStringToNSString(eventName) ?: @""
+      properties: repro::ReproConverterIOS::convertCStringJSONToNSDictionary(jsonDictionary)];
 }
 
 // In App Message

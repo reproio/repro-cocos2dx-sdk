@@ -37,7 +37,7 @@
 
         <!-- for use push notification -->
         <receiver
-            android:name="io.repro.android.GCMReceiver"
+            android:name="io.repro.android.ReproReceiver"
             android:exported="true"
             android:permission="com.google.android.c2dm.permission.SEND">
             <intent-filter>

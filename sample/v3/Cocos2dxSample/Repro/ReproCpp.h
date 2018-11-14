@@ -11,6 +11,7 @@
 #include <string>
 #include <map>
 #include <ctime>
+#include "ReproEventProperties.h"
 
 class ReproCpp {
 
@@ -40,6 +41,18 @@ public:
     static void setIntUserProfile(const char* key, int value);
     static void setDoubleUserProfile(const char* key, double value);
     static void setDateUserProfile(const char* key, std::time_t value);
+
+    // Standard Event Tracking
+    static void trackViewContent(const char* contentId, repro::ViewContentProperties* properties);
+    static void trackSearch(repro::SearchProperties* properties);
+    static void trackAddToCart(const char* contentId, repro::AddToCartProperties* properties);
+    static void trackAddToWishlist(repro::AddToWishlistProperties* properties);
+    static void trackInitiateCheckout(repro::InitiateCheckoutProperties* properties);
+    static void trackAddPaymentInfo(repro::AddPaymentInfoProperties* properties);
+    static void trackPurchase(const char* contentId, double value, const char* currency, repro::PurchaseProperties* properties);
+    static void trackShare(repro::ShareProperties* properties);
+    static void trackLead(repro::LeadProperties* properties);
+    static void trackCompleteRegistration(repro::CompleteRegistrationProperties* properties);
 
     // Event Tracking
     static void track(const char*eventName);

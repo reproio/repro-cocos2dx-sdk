@@ -63,9 +63,6 @@
 		8262943E1AAF051F00CB7CF7 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8262943D1AAF051F00CB7CF7 /* Security.framework */; };
 		AE00072E1E9CB20C006413CD /* Repro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE00072B1E9CB20C006413CD /* Repro.framework */; };
 		AE00072F1E9CB20C006413CD /* ReproSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = AE00072D1E9CB20C006413CD /* ReproSDKResources.bundle */; };
-		AE1675671E8E498600C904AA /* NotificationService.m in Sources */ = {isa = PBXBuildFile; fileRef = AE1675661E8E498600C904AA /* NotificationService.m */; };
-		AE16756B1E8E498600C904AA /* NotificationServiceExtenstionExample.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = AE1675631E8E498600C904AA /* NotificationServiceExtenstionExample.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		AEAD8A2D1E93CD0900F962AB /* ReproCpp.mm in Sources */ = {isa = PBXBuildFile; fileRef = AEAD8A2C1E93CD0900F962AB /* ReproCpp.mm */; };
 		AEE4C6111E8C21C100B97C74 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEE4C6101E8C21C100B97C74 /* CoreMedia.framework */; };
 		AEE4C6131E8C21C800B97C74 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEE4C6121E8C21C800B97C74 /* CoreTelephony.framework */; };
 		AEE4C6151E8C21CF00B97C74 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEE4C6141E8C21CF00B97C74 /* CoreVideo.framework */; };
@@ -80,6 +77,23 @@
 		D44C620E132DFF430009C878 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620D132DFF430009C878 /* AVFoundation.framework */; };
 		D44C6210132DFF4E0009C878 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620F132DFF4E0009C878 /* AudioToolbox.framework */; };
 		D6B0611B1803AB670077942B /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6B0611A1803AB670077942B /* CoreMotion.framework */; };
+		E836B69921475C0600C7E21A /* ReproConverterIOS.mm in Sources */ = {isa = PBXBuildFile; fileRef = E836B69721475C0600C7E21A /* ReproConverterIOS.mm */; };
+		E836B69C2147636100C7E21A /* ReproConverterIOSTest.mm in Sources */ = {isa = PBXBuildFile; fileRef = E836B6862147597900C7E21A /* ReproConverterIOSTest.mm */; };
+		E836B69D2147645E00C7E21A /* Repro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE00072B1E9CB20C006413CD /* Repro.framework */; };
+		E836B69E21477EFF00C7E21A /* ReproConverterIOS.mm in Sources */ = {isa = PBXBuildFile; fileRef = E836B69721475C0600C7E21A /* ReproConverterIOS.mm */; };
+		E836B6A32147BADD00C7E21A /* ReproCpp.mm in Sources */ = {isa = PBXBuildFile; fileRef = E849F53A214122DD0005E52B /* ReproCpp.mm */; };
+		E849F545214122DD0005E52B /* ReproCpp.mm in Sources */ = {isa = PBXBuildFile; fileRef = E849F53A214122DD0005E52B /* ReproCpp.mm */; };
+		E850658D215C77E5008F54A5 /* PurchaseProperties.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E8506582215C77E3008F54A5 /* PurchaseProperties.cpp */; };
+		E850658E215C77E5008F54A5 /* AddToWishlistProperties.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E8506584215C77E4008F54A5 /* AddToWishlistProperties.cpp */; };
+		E850658F215C77E5008F54A5 /* ViewContentProperties.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E8506585215C77E4008F54A5 /* ViewContentProperties.cpp */; };
+		E8506590215C77E5008F54A5 /* ShareProperties.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E8506586215C77E4008F54A5 /* ShareProperties.cpp */; };
+		E8506591215C77E5008F54A5 /* InitiateCheckoutProperties.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E8506587215C77E4008F54A5 /* InitiateCheckoutProperties.cpp */; };
+		E8506592215C77E5008F54A5 /* LeadProperties.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E8506588215C77E4008F54A5 /* LeadProperties.cpp */; };
+		E8506593215C77E5008F54A5 /* AddPaymentInfoProperties.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E8506589215C77E4008F54A5 /* AddPaymentInfoProperties.cpp */; };
+		E8506594215C77E5008F54A5 /* CompleteRegistrationProperties.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E850658A215C77E4008F54A5 /* CompleteRegistrationProperties.cpp */; };
+		E8506595215C77E5008F54A5 /* SearchProperties.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E850658B215C77E4008F54A5 /* SearchProperties.cpp */; };
+		E8506596215C77E5008F54A5 /* AddToCartProperties.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E850658C215C77E4008F54A5 /* AddToCartProperties.cpp */; };
+		E850659B215C86C0008F54A5 /* StandardEventProperties.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E8506599215C86C0008F54A5 /* StandardEventProperties.cpp */; };
 		ED545A7C1B68A1F400C3958E /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ED545A7B1B68A1F400C3958E /* libiconv.dylib */; };
 		ED545A7E1B68A1FA00C3958E /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ED545A7D1B68A1FA00C3958E /* libiconv.dylib */; };
 /* End PBXBuildFile section */
@@ -113,19 +127,19 @@
 			remoteGlobalIDString = A07A4C241783777C0073F6A7;
 			remoteInfo = "cocos2dx iOS";
 		};
-		AE1675691E8E498600C904AA /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = AE1675621E8E498600C904AA;
-			remoteInfo = NotificationServiceExtenstionExample;
-		};
 		AEE4C6051E8C1F2700B97C74 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 1AC6FAE5180E9839004C840B /* cocos2d_libs.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 507B40FD1C31BDD30067B53E;
 			remoteInfo = "libcocos2d tvOS";
+		};
+		E836B69121475AEE00C7E21A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1D6058900D05DD3D006BFB54;
+			remoteInfo = "Cocos2dxSample-mobile";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -136,7 +150,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				AE16756B1E8E498600C904AA /* NotificationServiceExtenstionExample.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -198,12 +211,9 @@
 		8262943D1AAF051F00CB7CF7 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		AE00072B1E9CB20C006413CD /* Repro.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Repro.framework; sourceTree = "<group>"; };
 		AE00072D1E9CB20C006413CD /* ReproSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ReproSDKResources.bundle; sourceTree = "<group>"; };
-		AE1675631E8E498600C904AA /* NotificationServiceExtenstionExample.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = NotificationServiceExtenstionExample.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE1675651E8E498600C904AA /* NotificationService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationService.h; sourceTree = "<group>"; };
 		AE1675661E8E498600C904AA /* NotificationService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationService.m; sourceTree = "<group>"; };
 		AE1675681E8E498600C904AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AEAD8A2B1E93CD0900F962AB /* ReproCpp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReproCpp.h; path = ../Repro/ReproCpp.h; sourceTree = "<group>"; };
-		AEAD8A2C1E93CD0900F962AB /* ReproCpp.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = ReproCpp.mm; path = ../Repro/ReproCpp.mm; sourceTree = "<group>"; };
 		AEE4C6101E8C21C100B97C74 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/CoreMedia.framework; sourceTree = DEVELOPER_DIR; };
 		AEE4C6121E8C21C800B97C74 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/CoreTelephony.framework; sourceTree = DEVELOPER_DIR; };
 		AEE4C6141E8C21CF00B97C74 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/CoreVideo.framework; sourceTree = DEVELOPER_DIR; };
@@ -219,6 +229,36 @@
 		D44C620D132DFF430009C878 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		D44C620F132DFF4E0009C878 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		D6B0611A1803AB670077942B /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/CoreMotion.framework; sourceTree = DEVELOPER_DIR; };
+		E80DD742216E0A1100028CD4 /* ReproEventProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReproEventProperties.h; sourceTree = "<group>"; };
+		E836B6862147597900C7E21A /* ReproConverterIOSTest.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ReproConverterIOSTest.mm; sourceTree = "<group>"; };
+		E836B68C21475AEE00C7E21A /* Cocos2dxSample-mobileTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Cocos2dxSample-mobileTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E836B69021475AEE00C7E21A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E836B69721475C0600C7E21A /* ReproConverterIOS.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = ReproConverterIOS.mm; path = ../Repro/ReproConverterIOS.mm; sourceTree = "<group>"; };
+		E836B69821475C0600C7E21A /* ReproConverterIOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ReproConverterIOS.h; path = ../Repro/ReproConverterIOS.h; sourceTree = "<group>"; };
+		E849F525214122DC0005E52B /* AddToWishlistProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddToWishlistProperties.h; sourceTree = "<group>"; };
+		E849F526214122DC0005E52B /* CompleteRegistrationProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompleteRegistrationProperties.h; sourceTree = "<group>"; };
+		E849F527214122DC0005E52B /* ShareProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareProperties.h; sourceTree = "<group>"; };
+		E849F52B214122DC0005E52B /* InitiateCheckoutProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InitiateCheckoutProperties.h; sourceTree = "<group>"; };
+		E849F52C214122DC0005E52B /* AddToCartProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddToCartProperties.h; sourceTree = "<group>"; };
+		E849F52E214122DC0005E52B /* LeadProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeadProperties.h; sourceTree = "<group>"; };
+		E849F532214122DC0005E52B /* AddPaymentInfoProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddPaymentInfoProperties.h; sourceTree = "<group>"; };
+		E849F535214122DC0005E52B /* PurchaseProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PurchaseProperties.h; sourceTree = "<group>"; };
+		E849F536214122DC0005E52B /* ViewContentProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewContentProperties.h; sourceTree = "<group>"; };
+		E849F537214122DC0005E52B /* SearchProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchProperties.h; sourceTree = "<group>"; };
+		E849F539214122DC0005E52B /* ReproCpp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReproCpp.h; path = ../Repro/ReproCpp.h; sourceTree = "<group>"; };
+		E849F53A214122DD0005E52B /* ReproCpp.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = ReproCpp.mm; path = ../Repro/ReproCpp.mm; sourceTree = "<group>"; };
+		E8506582215C77E3008F54A5 /* PurchaseProperties.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PurchaseProperties.cpp; sourceTree = "<group>"; };
+		E8506584215C77E4008F54A5 /* AddToWishlistProperties.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AddToWishlistProperties.cpp; sourceTree = "<group>"; };
+		E8506585215C77E4008F54A5 /* ViewContentProperties.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ViewContentProperties.cpp; sourceTree = "<group>"; };
+		E8506586215C77E4008F54A5 /* ShareProperties.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ShareProperties.cpp; sourceTree = "<group>"; };
+		E8506587215C77E4008F54A5 /* InitiateCheckoutProperties.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = InitiateCheckoutProperties.cpp; sourceTree = "<group>"; };
+		E8506588215C77E4008F54A5 /* LeadProperties.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LeadProperties.cpp; sourceTree = "<group>"; };
+		E8506589215C77E4008F54A5 /* AddPaymentInfoProperties.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AddPaymentInfoProperties.cpp; sourceTree = "<group>"; };
+		E850658A215C77E4008F54A5 /* CompleteRegistrationProperties.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CompleteRegistrationProperties.cpp; sourceTree = "<group>"; };
+		E850658B215C77E4008F54A5 /* SearchProperties.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SearchProperties.cpp; sourceTree = "<group>"; };
+		E850658C215C77E4008F54A5 /* AddToCartProperties.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AddToCartProperties.cpp; sourceTree = "<group>"; };
+		E8506598215C866D008F54A5 /* StandardEventProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StandardEventProperties.h; sourceTree = "<group>"; };
+		E8506599215C86C0008F54A5 /* StandardEventProperties.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = StandardEventProperties.cpp; sourceTree = "<group>"; };
 		ED545A7B1B68A1F400C3958E /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.4.sdk/usr/lib/libiconv.dylib; sourceTree = DEVELOPER_DIR; };
 		ED545A7D1B68A1FA00C3958E /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -272,10 +312,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		AE1675601E8E498600C904AA /* Frameworks */ = {
+		E836B68921475AEE00C7E21A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E836B69D2147645E00C7E21A /* Repro.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,7 +343,7 @@
 			children = (
 				1D6058910D05DD3D006BFB54 /* Cocos2dxSample-mobile.app */,
 				5087E76F17EB910900C73F5D /* Cocos2dxSample-desktop.app */,
-				AE1675631E8E498600C904AA /* NotificationServiceExtenstionExample.appex */,
+				E836B68C21475AEE00C7E21A /* Cocos2dxSample-mobileTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -320,12 +361,15 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				E836B6842147596000C7E21A /* tests */,
+				E8C03669214110A000544181 /* Plugins */,
 				AEEA28631E8D7AEE003E63F1 /* Cocos2dxSample-mobile.entitlements */,
 				AE00072A1E9CB20C006413CD /* Repro.embeddedframework */,
 				46880B8319C43A87006E1F66 /* Classes */,
 				46880B7519C43A67006E1F66 /* Resources */,
 				1AC6FAE5180E9839004C840B /* cocos2d_libs.xcodeproj */,
 				AE1675641E8E498600C904AA /* NotificationServiceExtenstionExample */,
+				E836B68D21475AEE00C7E21A /* Cocos2dxSample-mobileTests */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				080E96DDFE201D6D7F000001 /* ios */,
 				503AE10617EB990700D1A890 /* mac */,
@@ -384,12 +428,10 @@
 		46880B8319C43A87006E1F66 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				AEAD8A2B1E93CD0900F962AB /* ReproCpp.h */,
-				AEAD8A2C1E93CD0900F962AB /* ReproCpp.mm */,
-				46880B8419C43A87006E1F66 /* AppDelegate.cpp */,
 				46880B8519C43A87006E1F66 /* AppDelegate.h */,
-				46880B8619C43A87006E1F66 /* HelloWorldScene.cpp */,
+				46880B8419C43A87006E1F66 /* AppDelegate.cpp */,
 				46880B8719C43A87006E1F66 /* HelloWorldScene.h */,
+				46880B8619C43A87006E1F66 /* HelloWorldScene.cpp */,
 			);
 			name = Classes;
 			path = ../Classes;
@@ -469,6 +511,73 @@
 			path = NotificationServiceExtenstionExample;
 			sourceTree = "<group>";
 		};
+		E836B6842147596000C7E21A /* tests */ = {
+			isa = PBXGroup;
+			children = (
+				E836B6852147596700C7E21A /* ios */,
+			);
+			path = tests;
+			sourceTree = "<group>";
+		};
+		E836B6852147596700C7E21A /* ios */ = {
+			isa = PBXGroup;
+			children = (
+				E836B6862147597900C7E21A /* ReproConverterIOSTest.mm */,
+			);
+			path = ios;
+			sourceTree = "<group>";
+		};
+		E836B68D21475AEE00C7E21A /* Cocos2dxSample-mobileTests */ = {
+			isa = PBXGroup;
+			children = (
+				E836B69021475AEE00C7E21A /* Info.plist */,
+			);
+			path = "Cocos2dxSample-mobileTests";
+			sourceTree = "<group>";
+		};
+		E849F524214122DC0005E52B /* Properties */ = {
+			isa = PBXGroup;
+			children = (
+				E80DD742216E0A1100028CD4 /* ReproEventProperties.h */,
+				E8506598215C866D008F54A5 /* StandardEventProperties.h */,
+				E8506599215C86C0008F54A5 /* StandardEventProperties.cpp */,
+				E849F536214122DC0005E52B /* ViewContentProperties.h */,
+				E8506585215C77E4008F54A5 /* ViewContentProperties.cpp */,
+				E849F537214122DC0005E52B /* SearchProperties.h */,
+				E850658B215C77E4008F54A5 /* SearchProperties.cpp */,
+				E849F52C214122DC0005E52B /* AddToCartProperties.h */,
+				E850658C215C77E4008F54A5 /* AddToCartProperties.cpp */,
+				E849F525214122DC0005E52B /* AddToWishlistProperties.h */,
+				E8506584215C77E4008F54A5 /* AddToWishlistProperties.cpp */,
+				E849F52B214122DC0005E52B /* InitiateCheckoutProperties.h */,
+				E8506587215C77E4008F54A5 /* InitiateCheckoutProperties.cpp */,
+				E849F532214122DC0005E52B /* AddPaymentInfoProperties.h */,
+				E8506589215C77E4008F54A5 /* AddPaymentInfoProperties.cpp */,
+				E849F535214122DC0005E52B /* PurchaseProperties.h */,
+				E8506582215C77E3008F54A5 /* PurchaseProperties.cpp */,
+				E849F527214122DC0005E52B /* ShareProperties.h */,
+				E8506586215C77E4008F54A5 /* ShareProperties.cpp */,
+				E849F52E214122DC0005E52B /* LeadProperties.h */,
+				E8506588215C77E4008F54A5 /* LeadProperties.cpp */,
+				E849F526214122DC0005E52B /* CompleteRegistrationProperties.h */,
+				E850658A215C77E4008F54A5 /* CompleteRegistrationProperties.cpp */,
+			);
+			name = Properties;
+			path = ../Repro/Properties;
+			sourceTree = "<group>";
+		};
+		E8C03669214110A000544181 /* Plugins */ = {
+			isa = PBXGroup;
+			children = (
+				E849F524214122DC0005E52B /* Properties */,
+				E849F539214122DC0005E52B /* ReproCpp.h */,
+				E849F53A214122DD0005E52B /* ReproCpp.mm */,
+				E836B69821475C0600C7E21A /* ReproConverterIOS.h */,
+				E836B69721475C0600C7E21A /* ReproConverterIOS.mm */,
+			);
+			name = Plugins;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -485,7 +594,6 @@
 			);
 			dependencies = (
 				1AC6FB25180E99E1004C840B /* PBXTargetDependency */,
-				AE16756A1E8E498600C904AA /* PBXTargetDependency */,
 			);
 			name = "Cocos2dxSample-mobile";
 			productName = iphone;
@@ -510,22 +618,23 @@
 			productReference = 5087E76F17EB910900C73F5D /* Cocos2dxSample-desktop.app */;
 			productType = "com.apple.product-type.application";
 		};
-		AE1675621E8E498600C904AA /* NotificationServiceExtenstionExample */ = {
+		E836B68B21475AEE00C7E21A /* Cocos2dxSample-mobileTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AE16756C1E8E498600C904AA /* Build configuration list for PBXNativeTarget "NotificationServiceExtenstionExample" */;
+			buildConfigurationList = E836B69321475AEE00C7E21A /* Build configuration list for PBXNativeTarget "Cocos2dxSample-mobileTests" */;
 			buildPhases = (
-				AE16755F1E8E498600C904AA /* Sources */,
-				AE1675601E8E498600C904AA /* Frameworks */,
-				AE1675611E8E498600C904AA /* Resources */,
+				E836B68821475AEE00C7E21A /* Sources */,
+				E836B68921475AEE00C7E21A /* Frameworks */,
+				E836B68A21475AEE00C7E21A /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				E836B69221475AEE00C7E21A /* PBXTargetDependency */,
 			);
-			name = NotificationServiceExtenstionExample;
-			productName = NotificationServiceExtenstionExample;
-			productReference = AE1675631E8E498600C904AA /* NotificationServiceExtenstionExample.appex */;
-			productType = "com.apple.product-type.app-extension";
+			name = "Cocos2dxSample-mobileTests";
+			productName = "Cocos2dxSample-mobileTests";
+			productReference = E836B68C21475AEE00C7E21A /* Cocos2dxSample-mobileTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -545,12 +654,13 @@
 						};
 					};
 					5087E73D17EB910900C73F5D = {
-						DevelopmentTeam = GLPGBQ39X8;
+						DevelopmentTeam = 5V5JNQM6P4;
 					};
-					AE1675621E8E498600C904AA = {
-						CreatedOnToolsVersion = 8.3;
-						DevelopmentTeam = GLPGBQ39X8;
+					E836B68B21475AEE00C7E21A = {
+						CreatedOnToolsVersion = 9.4.1;
+						DevelopmentTeam = K9DEJK23FD;
 						ProvisioningStyle = Automatic;
+						TestTargetID = 1D6058900D05DD3D006BFB54;
 					};
 				};
 			};
@@ -576,7 +686,7 @@
 			targets = (
 				1D6058900D05DD3D006BFB54 /* Cocos2dxSample-mobile */,
 				5087E73D17EB910900C73F5D /* Cocos2dxSample-desktop */,
-				AE1675621E8E498600C904AA /* NotificationServiceExtenstionExample */,
+				E836B68B21475AEE00C7E21A /* Cocos2dxSample-mobileTests */,
 			);
 		};
 /* End PBXProject section */
@@ -650,7 +760,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		AE1675611E8E498600C904AA /* Resources */ = {
+		E836B68A21475AEE00C7E21A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -664,12 +774,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AEAD8A2D1E93CD0900F962AB /* ReproCpp.mm in Sources */,
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				46880B8A19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
+				E836B69921475C0600C7E21A /* ReproConverterIOS.mm in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
+				E850658D215C77E5008F54A5 /* PurchaseProperties.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
+				E8506593215C77E5008F54A5 /* AddPaymentInfoProperties.cpp in Sources */,
+				E8506592215C77E5008F54A5 /* LeadProperties.cpp in Sources */,
+				E849F545214122DD0005E52B /* ReproCpp.mm in Sources */,
+				E850659B215C86C0008F54A5 /* StandardEventProperties.cpp in Sources */,
+				E8506590215C77E5008F54A5 /* ShareProperties.cpp in Sources */,
+				E8506594215C77E5008F54A5 /* CompleteRegistrationProperties.cpp in Sources */,
+				E8506591215C77E5008F54A5 /* InitiateCheckoutProperties.cpp in Sources */,
+				E850658E215C77E5008F54A5 /* AddToWishlistProperties.cpp in Sources */,
+				E8506595215C77E5008F54A5 /* SearchProperties.cpp in Sources */,
+				E850658F215C77E5008F54A5 /* ViewContentProperties.cpp in Sources */,
+				E8506596215C77E5008F54A5 /* AddToCartProperties.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -683,11 +805,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		AE16755F1E8E498600C904AA /* Sources */ = {
+		E836B68821475AEE00C7E21A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AE1675671E8E498600C904AA /* NotificationService.m in Sources */,
+				E836B69C2147636100C7E21A /* ReproConverterIOSTest.mm in Sources */,
+				E836B6A32147BADD00C7E21A /* ReproCpp.mm in Sources */,
+				E836B69E21477EFF00C7E21A /* ReproConverterIOS.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -704,10 +828,10 @@
 			name = "cocos2dx iOS";
 			targetProxy = 1AC6FB24180E99E1004C840B /* PBXContainerItemProxy */;
 		};
-		AE16756A1E8E498600C904AA /* PBXTargetDependency */ = {
+		E836B69221475AEE00C7E21A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = AE1675621E8E498600C904AA /* NotificationServiceExtenstionExample */;
-			targetProxy = AE1675691E8E498600C904AA /* PBXContainerItemProxy */;
+			target = 1D6058900D05DD3D006BFB54 /* Cocos2dxSample-mobile */;
+			targetProxy = E836B69121475AEE00C7E21A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -744,6 +868,7 @@
 					"$(_COCOS_LIB_IOS_BEGIN)",
 					"$(_COCOS_LIB_IOS_END)",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
@@ -785,6 +910,7 @@
 					"$(_COCOS_LIB_IOS_BEGIN)",
 					"$(_COCOS_LIB_IOS_END)",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
@@ -856,104 +982,6 @@
 			};
 			name = Release;
 		};
-		AE16756D1E8E498600C904AA /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_ENTITLEMENTS = "";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = GLPGBQ39X8;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				INFOPLIST_FILE = NotificationServiceExtenstionExample/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = io.repro.cocos2dx.v3.sample.NotificationServiceExtenstionExample;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		AE16756E1E8E498600C904AA /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_ENTITLEMENTS = "";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = GLPGBQ39X8;
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				INFOPLIST_FILE = NotificationServiceExtenstionExample/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = io.repro.cocos2dx.v3.sample.NotificationServiceExtenstionExample;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -961,7 +989,7 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				DEVELOPMENT_TEAM = GLPGBQ39X8;
+				DEVELOPMENT_TEAM = 5V5JNQM6P4;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
@@ -988,7 +1016,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = GLPGBQ39X8;
+				DEVELOPMENT_TEAM = 5V5JNQM6P4;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
@@ -1006,6 +1034,130 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E836B69421475AEE00C7E21A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = K9DEJK23FD;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Repro.embeddedframework",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				INFOPLIST_FILE = "Cocos2dxSample-mobileTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.h-nagami.Cocos2dxSample-mobileTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Cocos2dxSample-mobile.app/Cocos2dxSample-mobile";
+			};
+			name = Debug;
+		};
+		E836B69521475AEE00C7E21A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = K9DEJK23FD;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Repro.embeddedframework",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				INFOPLIST_FILE = "Cocos2dxSample-mobileTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.h-nagami.Cocos2dxSample-mobileTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Cocos2dxSample-mobile.app/Cocos2dxSample-mobile";
 			};
 			name = Release;
 		};
@@ -1030,20 +1182,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		AE16756C1E8E498600C904AA /* Build configuration list for PBXNativeTarget "NotificationServiceExtenstionExample" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				AE16756D1E8E498600C904AA /* Debug */,
-				AE16756E1E8E498600C904AA /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
-		};
 		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Cocos2dxSample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C01FCF4F08A954540054247B /* Debug */,
 				C01FCF5008A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		E836B69321475AEE00C7E21A /* Build configuration list for PBXNativeTarget "Cocos2dxSample-mobileTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E836B69421475AEE00C7E21A /* Debug */,
+				E836B69521475AEE00C7E21A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;

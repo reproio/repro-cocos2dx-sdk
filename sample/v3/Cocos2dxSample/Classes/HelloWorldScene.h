@@ -30,6 +30,18 @@ public:
     void repro_showInAppMessage(Ref* pSender);
     void repro_setPushRegistrationID(Ref* pSender);
 
+    // standard event tracking
+    void repro_viewContent(Ref* pSender);
+    void repro_search(Ref* pSender);
+    void repro_addToCart(Ref* pSender);
+    void repro_addToWishlist(Ref* pSender);
+    void repro_initiateCheckout(Ref* pSender);
+    void repro_addPaymentInfo(Ref* pSender);
+    void repro_purchase(Ref* pSender);
+    void repro_share(Ref* pSender);
+    void repro_lead(Ref* pSender);
+    void repro_completeRegistration(Ref* pSender);
+
     // implement the "static create()" method manually
     CREATE_FUNC(HelloWorld);
 };

@@ -42,8 +42,8 @@ bool HelloWorld::init()
                                            "CloseSelected.png",
                                            CC_CALLBACK_1(HelloWorld::menuCloseCallback, this));
     
-    closeItem->setPosition(Vec2(origin.x + visibleSize.width - closeItem->getContentSize().width/2 ,
-                                origin.y + closeItem->getContentSize().height/2));
+    closeItem->setPosition(Vec2(origin.x + visibleSize.width - closeItem->getContentSize().width/2,
+                                origin.y + closeItem->getContentSize().height/2 + 10));
     
     // create menu, it's an autorelease object
     auto menu = Menu::create(closeItem, NULL);
@@ -69,7 +69,8 @@ bool HelloWorld::init()
     auto sprite = Sprite::create("HelloWorld.png");
     
     // position the sprite on the center of the screen
-    sprite->setPosition(Vec2(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y));
+    sprite->setPosition(Vec2(origin.x + visibleSize.width/2,
+                             origin.y + visibleSize.height - label->getContentSize().height - sprite->getContentSize().height));
     
     // add the sprite as a child to this layer
     this->addChild(sprite, 0);
@@ -104,7 +105,7 @@ bool HelloWorld::init()
                                                      CC_CALLBACK_1(HelloWorld::repro_crash, this)),
                                NULL);
     
-    pMenu->setPosition(Vec2(s.width - 150, s.height*0.5));
+    pMenu->setPosition(Vec2(s.width*0.5, s.height*0.5));
     pMenu->alignItemsVerticallyWithPadding(10);
     this->addChild(pMenu);
     
@@ -145,6 +146,34 @@ bool HelloWorld::init()
     pMenu2->setPosition(Vec2(150, s.height*0.5));
     pMenu2->alignItemsVerticallyWithPadding(10);
     this->addChild(pMenu2);
+
+    Menu* standardAPIMenu = Menu::create(
+                               MenuItemLabel::create(Label::createWithTTF("viewContent", "Marker Felt.ttf", 30),
+                                                     CC_CALLBACK_1(HelloWorld::repro_viewContent, this)),
+                               MenuItemLabel::create(Label::createWithTTF("search", "Marker Felt.ttf", 30),
+                                                     CC_CALLBACK_1(HelloWorld::repro_search, this)),
+                               MenuItemLabel::create(Label::createWithTTF("addToCart", "Marker Felt.ttf", 30),
+                                                     CC_CALLBACK_1(HelloWorld::repro_addToCart, this)),
+                               MenuItemLabel::create(Label::createWithTTF("addToWishlist", "Marker Felt.ttf", 30),
+                                                     CC_CALLBACK_1(HelloWorld::repro_addToWishlist, this)),
+                               MenuItemLabel::create(Label::createWithTTF("initiateCheckout", "Marker Felt.ttf", 30),
+                                                     CC_CALLBACK_1(HelloWorld::repro_initiateCheckout, this)),
+                               MenuItemLabel::create(Label::createWithTTF("addPaymentInfo", "Marker Felt.ttf", 30),
+                                                     CC_CALLBACK_1(HelloWorld::repro_addPaymentInfo, this)),
+                               MenuItemLabel::create(Label::createWithTTF("purchase", "Marker Felt.ttf", 30),
+                                                     CC_CALLBACK_1(HelloWorld::repro_purchase, this)),
+                               MenuItemLabel::create(Label::createWithTTF("share", "Marker Felt.ttf", 30),
+                                                     CC_CALLBACK_1(HelloWorld::repro_share, this)),
+                               MenuItemLabel::create(Label::createWithTTF("lead", "Marker Felt.ttf", 30),
+                                                     CC_CALLBACK_1(HelloWorld::repro_lead, this)),
+                               MenuItemLabel::create(Label::createWithTTF("completeRegistration", "Marker Felt.ttf", 30),
+                                                     CC_CALLBACK_1(HelloWorld::repro_completeRegistration, this)),
+
+                               NULL);
+    
+    standardAPIMenu->setPosition(Vec2(s.width - 150, s.height*0.5));
+    standardAPIMenu->alignItemsVerticallyWithPadding(10);
+    this->addChild(standardAPIMenu);
     
     return true;
 }
@@ -254,7 +283,7 @@ void HelloWorld::repro_track(Ref* pSender)
 void HelloWorld::repro_trackWithProperties(Ref* pSender)
 {
     log("trackWithProperties");
-    ReproCpp::trackWithProperties("eventName", "{\"hoge\": \"moge\", \"fuga\": \"hage\"}");
+    ReproCpp::trackWithProperties("eventName", R"({"hoge": "moge", "fuga": "hage"})");
 }
 
 void HelloWorld::repro_crash(Ref* pSender)
@@ -279,4 +308,138 @@ void HelloWorld::repro_setPushRegistrationID(Ref* pSender)
 {
     log("setPushRegistrationID");
     ReproCpp::setPushRegistrationID("");
+}
+
+// Starndard API
+void HelloWorld::repro_viewContent(Ref* pSender) {
+    log("trackViewContent");
+
+    repro::ViewContentProperties properties;
+    properties.setContentName("Slim Jeans");
+    properties.setContentCategory("Clothing & Shoes > Mens > Clothing");
+    properties.setValue(5000.0);
+    properties.setCurrency("JPY");
+    properties.setExtras(R"({"color": "blue", "waist": 80})");
+
+    ReproCpp::trackViewContent("1234", &properties);
+}
+
+void HelloWorld::repro_search(Ref* pSender) {
+    log("trackSearch");
+
+    repro::SearchProperties properties;
+    properties.setContentId("1234");
+    properties.setContentCategory("Clothing & Shoes > Mens > Clothing");
+    properties.setValue(5000.0);
+    properties.setCurrency("JPY");
+    properties.setSearchString("Jeans");
+    properties.setExtras(R"({"color": "blue", "waist": 80})");
+
+    ReproCpp::trackSearch(&properties);
+}
+
+void HelloWorld::repro_addToCart(Ref* pSender) {
+    log("trackAddToCart");
+
+    repro::AddToCartProperties properties;
+    properties.setContentName("Slim Jeans");
+    properties.setContentCategory("Clothing & Shoes > Mens > Clothing");
+    properties.setValue(5000.0);
+    properties.setCurrency("JPY");
+    properties.setExtras(R"({"color": "blue", "waist": 80})");
+
+    ReproCpp::trackAddToCart("1234", &properties);
+}
+
+void HelloWorld::repro_addToWishlist(Ref* pSender) {
+    log("trackAddToWishlist");
+
+    repro::AddToWishlistProperties properties;
+    properties.setContentId("1234");
+    properties.setContentName("Slim Jeans");
+    properties.setContentCategory("Clothing & Shoes > Mens > Clothing");
+    properties.setValue(5000.0);
+    properties.setCurrency("JPY");
+    properties.setExtras(R"({"color": "blue", "waist": 80})");
+
+    ReproCpp::trackAddToWishlist(&properties);
+}
+
+void HelloWorld::repro_initiateCheckout(Ref* pSender) {
+    log("trackInitiateCheckout");
+
+    repro::InitiateCheckoutProperties properties;
+    properties.setContentId("1234");
+    properties.setContentName("Slim Jeans");
+    properties.setContentCategory("Clothing & Shoes > Mens > Clothing");
+    properties.setValue(5000.0);
+    properties.setCurrency("JPY");
+    properties.setNumItems(10);
+    properties.setExtras(R"({"color": "blue", "waist": 80})");
+
+    ReproCpp::trackInitiateCheckout(&properties);
+}
+
+void HelloWorld::repro_addPaymentInfo(Ref* pSender) {
+    log("trackAddPaymentInfo");
+
+    repro::AddPaymentInfoProperties properties;
+    properties.setContentId("1234");
+    properties.setContentCategory("Clothing & Shoes > Mens > Clothing");
+    properties.setValue(5000.0);
+    properties.setCurrency("JPY");
+    properties.setExtras(R"({"color": "blue", "waist": 80})");
+
+    ReproCpp::trackAddPaymentInfo(&properties);
+}
+
+void HelloWorld::repro_purchase(Ref* pSender) {
+    log("trackPurchase");
+
+    repro::PurchaseProperties properties;
+    properties.setContentName("Slim Jeans");
+    properties.setContentCategory("Clothing & Shoes > Mens > Clothing");
+    properties.setNumItems(2);
+    properties.setExtras(R"({"color": "blue", "waist": 80})");
+
+    ReproCpp::trackPurchase("1234", 5000.0, "JPY", &properties);
+}
+
+void HelloWorld::repro_share(Ref* pSender) {
+    log("trackShare");
+
+    repro::ShareProperties properties;
+    properties.setContentId("1234");
+    properties.setContentName("Slim Jeans");
+    properties.setContentCategory("Clothing & Shoes > Mens > Clothing");
+    properties.setServiceName("twitter");
+    properties.setExtras(R"({"color": "blue", "waist": 80})");
+
+    ReproCpp::trackShare(&properties);
+}
+
+void HelloWorld::repro_lead(Ref* pSender) {
+    log("trackLead");
+
+    repro::LeadProperties properties;
+    properties.setContentName("Slim Jeans");
+    properties.setContentCategory("Clothing & Shoes > Mens > Clothing");
+    properties.setValue(5000.0);
+    properties.setCurrency("JPY");
+    properties.setExtras(R"({"color": "blue", "waist": 80})");
+
+    ReproCpp::trackLead(&properties);
+}
+
+void HelloWorld::repro_completeRegistration(Ref* pSender) {
+    log("trackCompleteRegistration");
+
+    repro::CompleteRegistrationProperties properties;
+    properties.setContentName("Slim Jeans");
+    properties.setValue(5000.0);
+    properties.setCurrency("JPY");
+    properties.setStatus("completed");
+    properties.setExtras(R"({"color": "blue", "waist": 80})");
+
+    ReproCpp::trackCompleteRegistration(&properties);
 }

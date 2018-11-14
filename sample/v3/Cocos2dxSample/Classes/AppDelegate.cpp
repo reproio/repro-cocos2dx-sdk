@@ -1,5 +1,10 @@
 #include "AppDelegate.h"
 #include "HelloWorldScene.h"
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+#include "firebase/app.h"
+#include "firebase/messaging.h"
+#endif
+#include "ReproCpp.h"
 
 USING_NS_CC;
 
@@ -7,6 +12,19 @@ static cocos2d::Size designResolutionSize = cocos2d::Size(480, 320);
 static cocos2d::Size smallResolutionSize = cocos2d::Size(480, 320);
 static cocos2d::Size mediumResolutionSize = cocos2d::Size(1024, 768);
 static cocos2d::Size largeResolutionSize = cocos2d::Size(2048, 1536);
+
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+class MyFirebaseMessagingListener : public firebase::messaging::Listener {
+public:
+    void OnMessage(const firebase::messaging::Message& message) override {
+    }
+
+    void OnTokenReceived(const char* token) override {
+        ReproCpp::setPushRegistrationID(token);
+    }
+};
+static MyFirebaseMessagingListener fcmListener;
+#endif
 
 AppDelegate::AppDelegate()
 {
@@ -81,6 +99,11 @@ bool AppDelegate::applicationDidFinishLaunching() {
 
     // run
     director->runWithScene(scene);
+
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+    firebase::App* app = firebase::App::Create(firebase::AppOptions(), JniHelper::getEnv(), JniHelper::getActivity());
+    firebase::messaging::Initialize(*app, &fcmListener);
+#endif
 
     return true;
 }
