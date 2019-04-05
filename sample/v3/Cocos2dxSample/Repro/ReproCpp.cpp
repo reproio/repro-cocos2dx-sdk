@@ -30,6 +30,18 @@ void ReproCpp::setup(const char* token) {
     }
 }
 
+// OptIn / OptOut
+
+void ReproCpp::optIn(bool endUserOptedIn) {
+    cocos2d::JniMethodInfo methodInfo;
+    if (cocos2d::JniHelper::getStaticMethodInfo(methodInfo, CLASS_NAME_REPRO_SDK, "optIn", "(Z)V"))
+    {
+        methodInfo.env->CallStaticVoidMethod(methodInfo.classID, methodInfo.methodID, endUserOptedIn);
+        methodInfo.env->DeleteLocalRef(methodInfo.classID);
+        return;
+    }
+}
+
 // Log Level
 
 void ReproCpp::setLogLevel(const char* logLevel) {

@@ -81,6 +81,10 @@ bool HelloWorld::init()
     
     Menu* pMenu = Menu::create(MenuItemLabel::create(Label::createWithTTF("setup", "Marker Felt.ttf", 30),
                                                      CC_CALLBACK_1(HelloWorld::repro_setup, this)),
+                               MenuItemLabel::create(Label::createWithTTF("opt in", "Marker Felt.ttf", 30),
+                                                     CC_CALLBACK_1(HelloWorld::repro_optIn, this)),
+                               MenuItemLabel::create(Label::createWithTTF("opt out", "Marker Felt.ttf", 30),
+                                                     CC_CALLBACK_1(HelloWorld::repro_optOut, this)),
                                MenuItemLabel::create(Label::createWithTTF("startRecording", "Marker Felt.ttf", 30),
                                                      CC_CALLBACK_1(HelloWorld::repro_startRecording, this)),
                                MenuItemLabel::create(Label::createWithTTF("stopRecording", "Marker Felt.ttf", 30),
@@ -197,6 +201,16 @@ void HelloWorld::repro_setup(Ref* pSender)
 {
     log("setup");
     ReproCpp::setup("YOUR_APP_TOKEN");
+}
+
+void HelloWorld::repro_optIn(Ref* pSender)
+{
+    ReproCpp::optIn(true);
+}
+
+void HelloWorld::repro_optOut(Ref* pSender)
+{
+    ReproCpp::optIn(false);
 }
 
 void HelloWorld::repro_setLoglevel(Ref* pSender)

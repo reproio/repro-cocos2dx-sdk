@@ -20,6 +20,9 @@ public:
     // Setup
     static void setup(const char* token);
 
+    // OptIn / OptOut
+    static void optIn(bool endUserOptedIn);
+
     // Log Level
     static void setLogLevel(const char* logLevel);
 

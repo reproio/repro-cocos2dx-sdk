@@ -14,6 +14,8 @@ public:
     void menuCloseCallback(cocos2d::Ref* pSender);
     
     void repro_setup(Ref* pSender);
+    void repro_optIn(Ref* pSender);
+    void repro_optOut(Ref* pSender);
     void repro_setLoglevel(Ref* pSender);
     void repro_startRecording(Ref* pSender);
     void repro_stopRecording(Ref* pSender);

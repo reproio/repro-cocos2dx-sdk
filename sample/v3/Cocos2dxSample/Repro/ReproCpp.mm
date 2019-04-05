@@ -42,6 +42,12 @@ void ReproCpp::setup(const char* token) {
     [Repro setup: repro::ReproConverterIOS::convertCStringToNSString(token) ?: @""];
 }
 
+// OptIn / OptOut
+
+void ReproCpp::optIn(bool endUserOptedIn) {
+    [Repro optIn:endUserOptedIn];
+}
+
 // Log Level
 
 void ReproCpp::setLogLevel(const char* logLevel) {
