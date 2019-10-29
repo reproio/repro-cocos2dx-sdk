@@ -14,7 +14,7 @@
 
 #define CLASS_NAME_REPRO_SDK "io.repro.android.Repro"
 #define CLASS_NAME_REPRO_SDK_BRIDGE "io.repro.android.Cocos2dxBridge"
-#define CLASS_NAME_REPRO_CLIENT_BRIDGE "io.repro.cocos2dx.v3.sample.ReproBridge"
+#define CLASS_NAME_REPRO_CLIENT_BRIDGE "com.your.PackageName.ReproBridge"
 
 // Setup
 
@@ -54,34 +54,6 @@ void ReproCpp::setLogLevel(const char* logLevel) {
         methodInfo.env->DeleteLocalRef(methodInfo.classID);
         return;
     }
-}
-
-// Screen Recording
-
-void ReproCpp::startRecording() {
-    // startRecording is not supported for Android. No operation is executed.
-}
-
-void ReproCpp::stopRecording() {
-    // stopRecording is not supported for Android. No operation is executed.
-}
-
-void ReproCpp::pauseRecording() {
-    // pauseRecording is not supported for Android. No operation is executed.
-}
-
-void ReproCpp::resumeRecording() {
-    // resumeRecording is not supported for Android. No operation is executed.
-}
-
-// Masking
-
-void ReproCpp::maskWithRect(float x, float y, float width, float height, const char* key) {
-    // maskWithRect is not supported for Android. No operation is executed.
-}
-
-void ReproCpp::unmaskWithRect(const char* key) {
-    // unmaskWithRect is not supported for Android. No operation is executed.
 }
 
 // User Profile

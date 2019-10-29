@@ -26,16 +26,6 @@ public:
     // Log Level
     static void setLogLevel(const char* logLevel);
 
-    // Screen Recording
-    static void startRecording();
-    static void stopRecording();
-    static void pauseRecording();
-    static void resumeRecording();
-
-    // Masking
-    static void maskWithRect(float x, float y, float width, float height, const char* key);
-    static void unmaskWithRect(const char* key);
-
     // User Profile
     static void setUserID(const char* userId);
     static const char* getUserID();

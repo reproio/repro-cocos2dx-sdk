@@ -85,18 +85,6 @@ bool HelloWorld::init()
                                                      CC_CALLBACK_1(HelloWorld::repro_optIn, this)),
                                MenuItemLabel::create(Label::createWithTTF("opt out", "Marker Felt.ttf", 30),
                                                      CC_CALLBACK_1(HelloWorld::repro_optOut, this)),
-                               MenuItemLabel::create(Label::createWithTTF("startRecording", "Marker Felt.ttf", 30),
-                                                     CC_CALLBACK_1(HelloWorld::repro_startRecording, this)),
-                               MenuItemLabel::create(Label::createWithTTF("stopRecording", "Marker Felt.ttf", 30),
-                                                     CC_CALLBACK_1(HelloWorld::repro_stopRecording, this)),
-                               MenuItemLabel::create(Label::createWithTTF("pauseRecording", "Marker Felt.ttf", 30),
-                                                     CC_CALLBACK_1(HelloWorld::repro_pauseRecording, this)),
-                               MenuItemLabel::create(Label::createWithTTF("resumeRecording", "Marker Felt.ttf", 30),
-                                                     CC_CALLBACK_1(HelloWorld::repro_resumeRecording, this)),
-                               MenuItemLabel::create(Label::createWithTTF("maskWithRect", "Marker Felt.ttf", 30),
-                                                     CC_CALLBACK_1(HelloWorld::repro_maskWithRect, this)),
-                               MenuItemLabel::create(Label::createWithTTF("unmaskWithRect", "Marker Felt.ttf", 30),
-                                                     CC_CALLBACK_1(HelloWorld::repro_unmaskWithRect, this)),
                                MenuItemLabel::create(Label::createWithTTF("setUserID", "Marker Felt.ttf", 30),
                                                      CC_CALLBACK_1(HelloWorld::repro_setUserID, this)),
                                MenuItemLabel::create(Label::createWithTTF("setUserProfile", "Marker Felt.ttf", 30),
@@ -237,42 +225,6 @@ void HelloWorld::repro_setLoglevel(Ref* pSender)
         default:
             break;
     }
-}
-
-void HelloWorld::repro_startRecording(Ref* pSender)
-{
-    log("startRecording");
-    ReproCpp::startRecording();
-}
-
-void HelloWorld::repro_stopRecording(Ref* pSender)
-{
-    log("stopRecording");
-    ReproCpp::stopRecording();
-}
-
-void HelloWorld::repro_pauseRecording(Ref* pSender)
-{
-    log("pauseRecording");
-    ReproCpp::pauseRecording();
-}
-
-void HelloWorld::repro_resumeRecording(Ref* pSender)
-{
-    log("resumeRecording");
-    ReproCpp::resumeRecording();
-}
-
-void HelloWorld::repro_maskWithRect(Ref* pSender)
-{
-    log("maskWithRect");
-    ReproCpp::maskWithRect(100, 100, 100, 100, "mask");
-}
-
-void HelloWorld::repro_unmaskWithRect(Ref* pSender)
-{
-    log("unmaskWithRect");
-    ReproCpp::unmaskWithRect("mask");
 }
 
 void HelloWorld::repro_setUserID(Ref* pSender)

@@ -17,12 +17,6 @@ public:
     void repro_optIn(Ref* pSender);
     void repro_optOut(Ref* pSender);
     void repro_setLoglevel(Ref* pSender);
-    void repro_startRecording(Ref* pSender);
-    void repro_stopRecording(Ref* pSender);
-    void repro_pauseRecording(Ref* pSender);
-    void repro_resumeRecording(Ref* pSender);
-    void repro_maskWithRect(Ref* pSender);
-    void repro_unmaskWithRect(Ref* pSender);
     void repro_setUserID(Ref* pSender);
     void repro_setUserProfile(Ref* pSender);
     void repro_track(Ref* pSender);

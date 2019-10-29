@@ -64,42 +64,6 @@ void ReproCpp::setLogLevel(const char* logLevel) {
     }
 }
 
-// Screen Recording
-
-void ReproCpp::startRecording() {
-
-    if (osVersion() >= 12.0 &&
-        majorIndexOfDeviceIdentifierFor(@"iPhone") >= 9) { // 9 means iPhone9,1 which is an iPhone 7
-        // do not start recording
-        NSLog(@"Ingore StartRecording");
-        return;
-    }
-
-    [Repro startRecording];
-}
-
-void ReproCpp::stopRecording() {
-    [Repro stopRecording];
-}
-
-void ReproCpp::pauseRecording() {
-    [Repro pauseRecording];
-}
-
-void ReproCpp::resumeRecording() {
-    [Repro resumeRecording];
-}
-
-// Masking
-
-void ReproCpp::maskWithRect(float x, float y, float width, float height, const char* key) {
-    [Repro maskWithRect:CGRectMake(x,y,width,height) key: repro::ReproConverterIOS::convertCStringToNSString(key) ?: @""];
-}
-
-void ReproCpp::unmaskWithRect(const char* key) {
-    [Repro unmaskForKey: repro::ReproConverterIOS::convertCStringToNSString(key) ?: @""];
-}
-
 // User Profile
 
 void ReproCpp::setUserID(const char* userId) {
