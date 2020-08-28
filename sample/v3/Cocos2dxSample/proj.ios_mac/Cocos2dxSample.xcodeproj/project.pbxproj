@@ -62,6 +62,9 @@
 		521A8EAA19F11F5000D177D7 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 521A8EA819F11F5000D177D7 /* fonts */; };
 		52B47A471A53D09C004E4C60 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52B47A461A53D09B004E4C60 /* Security.framework */; };
 		8262943E1AAF051F00CB7CF7 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8262943D1AAF051F00CB7CF7 /* Security.framework */; };
+		A60D799324E3724D00EBB715 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A60D799124E3724D00EBB715 /* CFNetwork.framework */; };
+		A60D799F24E3740D00EBB715 /* NewsFeedEntry.mm in Sources */ = {isa = PBXBuildFile; fileRef = A60D799B24E3740D00EBB715 /* NewsFeedEntry.mm */; };
+		A6FEFA4F24E9658400A20876 /* RemoteConfig.mm in Sources */ = {isa = PBXBuildFile; fileRef = A6FEFA4E24E9658400A20876 /* RemoteConfig.mm */; };
 		AE00072E1E9CB20C006413CD /* Repro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE00072B1E9CB20C006413CD /* Repro.framework */; };
 		AE00072F1E9CB20C006413CD /* ReproSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = AE00072D1E9CB20C006413CD /* ReproSDKResources.bundle */; };
 		AEE4C6111E8C21C100B97C74 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEE4C6101E8C21C100B97C74 /* CoreMedia.framework */; };
@@ -211,6 +214,9 @@
 		521A8EA819F11F5000D177D7 /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fonts; sourceTree = "<group>"; };
 		52B47A461A53D09B004E4C60 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.1.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
 		8262943D1AAF051F00CB7CF7 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		A60D799124E3724D00EBB715 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		A60D799B24E3740D00EBB715 /* NewsFeedEntry.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = NewsFeedEntry.mm; sourceTree = "<group>"; };
+		A6FEFA4E24E9658400A20876 /* RemoteConfig.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = RemoteConfig.mm; path = ../../Repro/RemoteConfig/RemoteConfig.mm; sourceTree = "<group>"; };
 		AE00072B1E9CB20C006413CD /* Repro.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Repro.framework; sourceTree = "<group>"; };
 		AE00072D1E9CB20C006413CD /* ReproSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ReproSDKResources.bundle; sourceTree = "<group>"; };
 		AE1675651E8E498600C904AA /* NotificationService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationService.h; sourceTree = "<group>"; };
@@ -288,6 +294,7 @@
 				288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */,
 				AE00072E1E9CB20C006413CD /* Repro.framework in Frameworks */,
 				BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */,
+				A60D799324E3724D00EBB715 /* CFNetwork.framework in Frameworks */,
 				BF1712471292920000B8313A /* libz.dylib in Frameworks */,
 				BF1C47F01293687400B63C5D /* QuartzCore.framework in Frameworks */,
 				D44C620C132DFF330009C878 /* OpenAL.framework in Frameworks */,
@@ -384,6 +391,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A60D799124E3724D00EBB715 /* CFNetwork.framework */,
 				5152CCEA235DB3E5001FEDFB /* WebKit.framework */,
 				AEEA28611E8D799E003E63F1 /* UserNotifications.framework */,
 				AEE4C61A1E8C21E300B97C74 /* SystemConfiguration.framework */,
@@ -488,6 +496,23 @@
 			path = ios;
 			sourceTree = SOURCE_ROOT;
 		};
+		A60D799A24E3740D00EBB715 /* NewsFeed */ = {
+			isa = PBXGroup;
+			children = (
+				A60D799B24E3740D00EBB715 /* NewsFeedEntry.mm */,
+			);
+			name = NewsFeed;
+			path = ../Repro/NewsFeed;
+			sourceTree = "<group>";
+		};
+		A6FEFA4824E95DFD00A20876 /* RemoteConfig */ = {
+			isa = PBXGroup;
+			children = (
+				A6FEFA4E24E9658400A20876 /* RemoteConfig.mm */,
+			);
+			path = RemoteConfig;
+			sourceTree = "<group>";
+		};
 		AE00072A1E9CB20C006413CD /* Repro.embeddedframework */ = {
 			isa = PBXGroup;
 			children = (
@@ -573,6 +598,8 @@
 		E8C03669214110A000544181 /* Plugins */ = {
 			isa = PBXGroup;
 			children = (
+				A60D799A24E3740D00EBB715 /* NewsFeed */,
+				A6FEFA4824E95DFD00A20876 /* RemoteConfig */,
 				E849F524214122DC0005E52B /* Properties */,
 				E849F539214122DC0005E52B /* ReproCpp.h */,
 				E849F53A214122DD0005E52B /* ReproCpp.mm */,
@@ -779,6 +806,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
+				A60D799F24E3740D00EBB715 /* NewsFeedEntry.mm in Sources */,
 				46880B8A19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				E836B69921475C0600C7E21A /* ReproConverterIOS.mm in Sources */,
@@ -794,6 +822,7 @@
 				E8506591215C77E5008F54A5 /* InitiateCheckoutProperties.cpp in Sources */,
 				E850658E215C77E5008F54A5 /* AddToWishlistProperties.cpp in Sources */,
 				E8506595215C77E5008F54A5 /* SearchProperties.cpp in Sources */,
+				A6FEFA4F24E9658400A20876 /* RemoteConfig.mm in Sources */,
 				E850658F215C77E5008F54A5 /* ViewContentProperties.cpp in Sources */,
 				E8506596215C77E5008F54A5 /* AddToCartProperties.cpp in Sources */,
 			);

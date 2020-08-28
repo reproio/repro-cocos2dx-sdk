@@ -71,31 +71,47 @@ void ReproCpp::setUserID(const char* userId) {
 }
 
 const char* ReproCpp::getUserID() {
-  return repro::ReproConverterIOS::convertNSStringToCString([Repro getUserID]);
+    return repro::ReproConverterIOS::convertNSStringToCString([Repro getUserID]);
 }
 
 const char* ReproCpp::getDeviceID() {
-  return repro::ReproConverterIOS::convertNSStringToCString([Repro getDeviceID]);
+    return repro::ReproConverterIOS::convertNSStringToCString([Repro getDeviceID]);
 }
 
 void ReproCpp::setStringUserProfile(const char* key, const char* value) {
-  [Repro setStringUserProfile: repro::ReproConverterIOS::convertCStringToNSString(value) ?: @""
-                       forKey: repro::ReproConverterIOS::convertCStringToNSString(key) ?: @""];
+    [Repro setStringUserProfile: repro::ReproConverterIOS::convertCStringToNSString(value) ?: @""
+                         forKey: repro::ReproConverterIOS::convertCStringToNSString(key) ?: @""];
 }
 
 void ReproCpp::setIntUserProfile(const char* key, int value) {
-  [Repro setIntUserProfile:value forKey: repro::ReproConverterIOS::convertCStringToNSString(key) ?: @""];
+    [Repro setIntUserProfile:value forKey: repro::ReproConverterIOS::convertCStringToNSString(key) ?: @""];
 }
 
 void ReproCpp::setDoubleUserProfile(const char* key, double value) {
-  [Repro setDoubleUserProfile:value forKey: repro::ReproConverterIOS::convertCStringToNSString(key) ?: @""];
+    [Repro setDoubleUserProfile:value forKey: repro::ReproConverterIOS::convertCStringToNSString(key) ?: @""];
 }
 
 void ReproCpp::setDateUserProfile(const char* key, std::time_t value) {
-  [Repro setDateUserProfile:[NSDate dateWithTimeIntervalSince1970:value]
-                     forKey: repro::ReproConverterIOS::convertCStringToNSString(key) ?: @""];
+    [Repro setDateUserProfile:[NSDate dateWithTimeIntervalSince1970:value]
+                       forKey: repro::ReproConverterIOS::convertCStringToNSString(key) ?: @""];
 }
 
+void ReproCpp::setUserGender(enum UserProfileGender gender) {
+    switch (gender) {
+        case UserProfileGenderMale:
+            [Repro setUserGender:RPRUserProfileGenderMale];
+            break;
+        case UserProfileGenderFemale:
+            [Repro setUserGender:RPRUserProfileGenderFemale];
+            break;
+        default:
+            [Repro setUserGender:RPRUserProfileGenderOther];
+    }
+}
+
+void ReproCpp::setUserEmailAddress(const char* value) {
+    [Repro setUserEmailAddress: repro::ReproConverterIOS::convertCStringToNSString(value) ?: @""];
+}
 // Standard Event Tracking
 
 void ReproCpp::trackViewContent(const char* contentId, repro::ViewContentProperties* properties) {
@@ -156,16 +172,91 @@ void ReproCpp::trackWithProperties(const char* eventName, const char* jsonDictio
 
 // In App Message
 
-void ReproCpp::disableInAppMessageOnActive() {
-    [Repro disableInAppMessageOnActive];
+void ReproCpp::disableInAppMessagesOnForegroundTransition() {
+    [Repro disableInAppMessagesOnForegroundTransition];
 }
 
-void ReproCpp::showInAppMessage() {
-    [Repro showInAppMessage];
+void ReproCpp::enableInAppMessagesOnForegroundTransition() {
+    [Repro enableInAppMessagesOnForegroundTransition];
 }
 
 // Push Notification
 
 void ReproCpp::setPushRegistrationID(const char* registrationID) {
     // not supported in iOS
+}
+
+// SilverEgg
+
+void ReproCpp::setSilverEggCookie(const char* cookie) {
+    [Repro setSilverEggCookie: repro::ReproConverterIOS::convertCStringToNSString(cookie) ?: @""];
+}
+
+void ReproCpp::setSilverEggProdKey(const char* key) {
+    [Repro setSilverEggProdKey: repro::ReproConverterIOS::convertCStringToNSString(key) ?: @""];
+}
+
+// NewsFeed
+
+#define SET_SUCCESS() if (error) { *error = false; }
+#define SET_ERROR() if (error) { *error = true; }
+
+std::vector<ReproCpp::NewsFeedEntry> ReproCpp::getNewsFeeds(uint64_t limit, bool *error) {
+    std::vector<ReproCpp::NewsFeedEntry> newsFeeds;
+    NSError *err = nil;
+    NSArray<RPRNewsFeedEntry *> *nativeNewsFeeds = [Repro getNewsFeeds:limit error:&err];
+    if (err) {
+        SET_ERROR();
+        return std::move(newsFeeds);
+    }
+
+    for (RPRNewsFeedEntry *entry in nativeNewsFeeds) {
+        newsFeeds.push_back(ReproCpp::NewsFeedEntry(entry));
+    }
+
+    SET_SUCCESS();
+    return std::move(newsFeeds);
+}
+
+std::vector<ReproCpp::NewsFeedEntry> ReproCpp::getNewsFeeds(uint64_t limit, uint64_t offsetID, bool *error) {
+    std::vector<ReproCpp::NewsFeedEntry> newsFeeds;
+    NSError *err = nil;
+    NSArray<RPRNewsFeedEntry *> *nativeNewsFeeds = [Repro getNewsFeeds:limit offsetID:offsetID error:&err];
+    if (err) {
+        SET_ERROR();
+        return std::move(newsFeeds);
+    }
+
+    for (RPRNewsFeedEntry *entry in nativeNewsFeeds) {
+        newsFeeds.push_back(ReproCpp::NewsFeedEntry(entry));
+    }
+
+    SET_SUCCESS();
+    return std::move(newsFeeds);
+}
+
+bool ReproCpp::updateNewsFeeds(std::vector<ReproCpp::NewsFeedEntry> newsFeeds, bool *error)
+{
+    NSMutableArray<RPRNewsFeedEntry *> *nativeNewsFeeds = [NSMutableArray array];
+    for (auto iter = newsFeeds.begin(); iter != newsFeeds.end(); iter++) {
+        ReproCpp::NewsFeedEntry entry = *iter;
+        [nativeNewsFeeds addObject:entry.getNativeNewsFeedEntry()];
+    }
+
+    NSError *err = nil;
+    [Repro updateNewsFeeds:nativeNewsFeeds error:&err];
+    if (err) {
+        SET_ERROR();
+        return false;
+    }
+
+    SET_SUCCESS();
+    return true;
+}
+
+// RemoteConfig
+
+ReproCpp::RemoteConfig ReproCpp::getRemoteConfig()
+{
+    return ReproCpp::RemoteConfig(Repro.remoteConfig);
 }

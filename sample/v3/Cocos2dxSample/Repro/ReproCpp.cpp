@@ -14,7 +14,6 @@
 
 #define CLASS_NAME_REPRO_SDK "io.repro.android.Repro"
 #define CLASS_NAME_REPRO_SDK_BRIDGE "io.repro.android.Cocos2dxBridge"
-#define CLASS_NAME_REPRO_CLIENT_BRIDGE "com.your.PackageName.ReproBridge"
 
 // Setup
 
@@ -136,6 +135,45 @@ void ReproCpp::setDateUserProfile(const char* key, std::time_t value) {
         jstring jKey = methodInfo.env->NewStringUTF(key);
         methodInfo.env->CallStaticVoidMethod(methodInfo.classID, methodInfo.methodID, jKey, (jlong)value);
         methodInfo.env->DeleteLocalRef(jKey);
+        methodInfo.env->DeleteLocalRef(methodInfo.classID);
+    }
+}
+
+void ReproCpp::setUserGender(enum UserProfileGender gender) {
+    cocos2d::JniMethodInfo methodInfo;
+    if (cocos2d::JniHelper::getStaticMethodInfo(methodInfo, CLASS_NAME_REPRO_SDK, "setUserGender", "(Lio/repro/android/user/UserProfileGender;)V")){
+        jclass jUserProfileGenderClass = methodInfo.env->FindClass("io/repro/android/user/UserProfileGender");
+        const char *fieldSignature = "Lio/repro/android/user/UserProfileGender;";
+        jfieldID jGenderField;
+        jobject jGender;
+
+        switch (gender) {
+            case UserProfileGenderMale:
+                jGenderField = methodInfo.env->GetStaticFieldID(jUserProfileGenderClass, "MALE", fieldSignature);
+                jGender = methodInfo.env->GetStaticObjectField(jUserProfileGenderClass, jGenderField);
+                break;
+            case UserProfileGenderFemale:
+                jGenderField = methodInfo.env->GetStaticFieldID(jUserProfileGenderClass, "FEMALE", fieldSignature);
+                jGender = methodInfo.env->GetStaticObjectField(jUserProfileGenderClass, jGenderField);
+                break;
+            default:
+                jGenderField = methodInfo.env->GetStaticFieldID(jUserProfileGenderClass, "OTHER", fieldSignature);
+                jGender = methodInfo.env->GetStaticObjectField(jUserProfileGenderClass, jGenderField);
+        }
+
+        methodInfo.env->CallStaticVoidMethod(methodInfo.classID, methodInfo.methodID, jGender);
+        methodInfo.env->DeleteLocalRef(methodInfo.classID);
+        methodInfo.env->DeleteLocalRef(jGender);
+        methodInfo.env->DeleteLocalRef(jUserProfileGenderClass);
+    }
+}
+
+void ReproCpp::setUserEmailAddress(const char* value) {
+    cocos2d::JniMethodInfo methodInfo;
+    if (cocos2d::JniHelper::getStaticMethodInfo(methodInfo, CLASS_NAME_REPRO_SDK, "setUserEmailAddress", "(Ljava/lang/String;)V")){
+        jstring jValue = methodInfo.env->NewStringUTF(value);
+        methodInfo.env->CallStaticVoidMethod(methodInfo.classID, methodInfo.methodID, jValue);
+        methodInfo.env->DeleteLocalRef(jValue);
         methodInfo.env->DeleteLocalRef(methodInfo.classID);
     }
 }
@@ -287,18 +325,18 @@ void ReproCpp::trackWithProperties(const char* eventName, const char* jsonDictio
 
 // In App Message
 
-void ReproCpp::disableInAppMessageOnActive() {
+void ReproCpp::disableInAppMessagesOnForegroundTransition() {
     cocos2d::JniMethodInfo methodInfo;
-    if (cocos2d::JniHelper::getStaticMethodInfo(methodInfo, CLASS_NAME_REPRO_SDK, "disableInAppMessageOnActive", "()V")){
+    if (cocos2d::JniHelper::getStaticMethodInfo(methodInfo, CLASS_NAME_REPRO_SDK, "disableInAppMessagesOnForegroundTransition", "()V")){
         methodInfo.env->CallStaticVoidMethod(methodInfo.classID, methodInfo.methodID);
         methodInfo.env->DeleteLocalRef(methodInfo.classID);
         return;
     }
 }
 
-void ReproCpp::showInAppMessage() {
+void ReproCpp::enableInAppMessagesOnForegroundTransition() {
     cocos2d::JniMethodInfo methodInfo;
-    if (cocos2d::JniHelper::getStaticMethodInfo(methodInfo, CLASS_NAME_REPRO_CLIENT_BRIDGE, "showInAppMessage", "()V")){
+    if (cocos2d::JniHelper::getStaticMethodInfo(methodInfo, CLASS_NAME_REPRO_CLIENT_BRIDGE, "enableInAppMessagesOnForegroundTransition", "()V")){
         methodInfo.env->CallStaticVoidMethod(methodInfo.classID, methodInfo.methodID);
         methodInfo.env->DeleteLocalRef(methodInfo.classID);
         return;
@@ -316,4 +354,137 @@ void ReproCpp::setPushRegistrationID(const char* registrationID) {
         methodInfo.env->DeleteLocalRef(methodInfo.classID);
         return;
     }
+}
+
+// SilverEgg
+
+void ReproCpp::setSilverEggCookie(const char* cookie) {
+    cocos2d::JniMethodInfo methodInfo;
+    if (cocos2d::JniHelper::getStaticMethodInfo(methodInfo, CLASS_NAME_REPRO_SDK, "setSilverEggCookie", "(Ljava/lang/String;)V")){
+        jstring jCookie = methodInfo.env->NewStringUTF(cookie);
+        methodInfo.env->CallStaticVoidMethod(methodInfo.classID, methodInfo.methodID, jCookie);
+        methodInfo.env->DeleteLocalRef(jCookie);
+        methodInfo.env->DeleteLocalRef(methodInfo.classID);
+        return;
+    }
+}
+
+void ReproCpp::setSilverEggProdKey(const char* key) {
+    cocos2d::JniMethodInfo methodInfo;
+    if (cocos2d::JniHelper::getStaticMethodInfo(methodInfo, CLASS_NAME_REPRO_SDK, "setSilverEggProdKey", "(Ljava/lang/String;)V")){
+        jstring jKey = methodInfo.env->NewStringUTF(key);
+        methodInfo.env->CallStaticVoidMethod(methodInfo.classID, methodInfo.methodID, jKey);
+        methodInfo.env->DeleteLocalRef(jKey);
+        methodInfo.env->DeleteLocalRef(methodInfo.classID);
+        return;
+    }
+}
+
+// NewsFeed
+
+#define SET_SUCCESS() if (error) { *error = false; }
+#define SET_ERROR() if (error) { *error = true; }
+
+static std::vector<ReproCpp::NewsFeedEntry> convertNewsFeed(JNIEnv *env, jobject nativeNewsFeeds)
+{
+    std::vector<ReproCpp::NewsFeedEntry> newsFeeds;
+
+    jclass clsList = env->FindClass("java/util/List");
+    jmethodID methodSize = env->GetMethodID(clsList, "size", "()I");
+    jmethodID methodGet = env->GetMethodID(clsList, "get", "(I)Ljava/lang/Object;");
+    if (clsList == NULL || methodSize == NULL || methodGet == NULL) {
+        return std::move(newsFeeds);
+    }
+
+    jint count = env->CallIntMethod(nativeNewsFeeds, methodSize);
+    for (jint i = 0; i < count; i++) {
+        jobject jEntry = env->CallObjectMethod(nativeNewsFeeds, methodGet, i);
+        newsFeeds.push_back(ReproCpp::NewsFeedEntry(jEntry));
+    }
+
+    return std::move(newsFeeds);
+}
+
+std::vector<ReproCpp::NewsFeedEntry> ReproCpp::getNewsFeeds(uint64_t limit, bool *error) {
+    cocos2d::JniMethodInfo methodInfo;
+    if (cocos2d::JniHelper::getStaticMethodInfo(methodInfo, CLASS_NAME_REPRO_SDK, "getNewsFeeds", "(I)Ljava/util/List;")){
+        jobject jNewsFeeds = methodInfo.env->CallStaticObjectMethod(methodInfo.classID, methodInfo.methodID, (jint)limit);
+        methodInfo.env->DeleteLocalRef(methodInfo.classID);
+        if (methodInfo.env->ExceptionCheck()) {
+            SET_ERROR();
+
+            std::vector<ReproCpp::NewsFeedEntry> newsFeeds;
+            return std::move(newsFeeds);
+        }
+
+        SET_SUCCESS();
+        return convertNewsFeed(methodInfo.env, jNewsFeeds);
+    }
+
+    SET_ERROR();
+    std::vector<ReproCpp::NewsFeedEntry> newsFeeds;
+    return std::move(newsFeeds);
+}
+
+std::vector<ReproCpp::NewsFeedEntry> ReproCpp::getNewsFeeds(uint64_t limit, uint64_t offsetID, bool *error) {
+    cocos2d::JniMethodInfo methodInfo;
+    if (cocos2d::JniHelper::getStaticMethodInfo(methodInfo, CLASS_NAME_REPRO_SDK, "getNewsFeeds", "(IJ)Ljava/util/List;")){
+        jobject jNewsFeeds = methodInfo.env->CallStaticObjectMethod(methodInfo.classID, methodInfo.methodID, (jint)limit, (jlong)offsetID);
+        methodInfo.env->DeleteLocalRef(methodInfo.classID);
+        if (methodInfo.env->ExceptionCheck()) {
+            SET_ERROR();
+            std::vector<ReproCpp::NewsFeedEntry> newsFeeds;
+            return std::move(newsFeeds);
+        }
+
+        SET_SUCCESS();
+        return convertNewsFeed(methodInfo.env, jNewsFeeds);
+    }
+
+    SET_ERROR();
+    std::vector<ReproCpp::NewsFeedEntry> newsFeeds;
+    return std::move(newsFeeds);
+}
+
+bool ReproCpp::updateNewsFeeds(std::vector<ReproCpp::NewsFeedEntry> newsFeeds, bool *error) {
+    cocos2d::JniMethodInfo methodInfo;
+    if (cocos2d::JniHelper::getStaticMethodInfo(methodInfo, CLASS_NAME_REPRO_SDK, "updateNewsFeeds", "(Ljava/util/List;)V")){
+        jclass classArrayList = methodInfo.env->FindClass("java/util/ArrayList");
+        jmethodID methodArrayListNew = methodInfo.env->GetMethodID(classArrayList, "<init>", "(I)V");
+        jmethodID methodArrayListAdd = methodInfo.env->GetMethodID(classArrayList, "add", "(Ljava/lang/Object;)Z");
+
+        jobject list = methodInfo.env->NewObject(classArrayList, methodArrayListNew, newsFeeds.size());
+        for (auto iter = newsFeeds.begin(); iter != newsFeeds.end(); iter++) {
+            ReproCpp::NewsFeedEntry entry = *iter;
+            methodInfo.env->CallBooleanMethod(list, methodArrayListAdd, entry.getNativeNewsFeedEntry());
+        }
+        methodInfo.env->CallStaticVoidMethod(methodInfo.classID, methodInfo.methodID, list);
+
+        methodInfo.env->DeleteLocalRef(classArrayList);
+        methodInfo.env->DeleteLocalRef(methodInfo.classID);
+        if (methodInfo.env->ExceptionCheck()) {
+            SET_ERROR();
+            return false;
+        }
+
+        SET_SUCCESS();
+        return true;
+    }
+
+    SET_ERROR();
+    return false;
+}
+
+// RemoteConfig
+
+ReproCpp::RemoteConfig ReproCpp::getRemoteConfig()
+{
+    cocos2d::JniMethodInfo methodInfo;
+    if (cocos2d::JniHelper::getStaticMethodInfo(methodInfo, CLASS_NAME_REPRO_SDK, "getRemoteConfig", "()Lio/repro/android/remoteconfig/RemoteConfig;")){
+        jobject remoteConfig = methodInfo.env->CallStaticObjectMethod(methodInfo.classID, methodInfo.methodID);
+
+        methodInfo.env->DeleteLocalRef(methodInfo.classID);
+        return ReproCpp::RemoteConfig(remoteConfig);
+    }
+    return nullptr;
 }

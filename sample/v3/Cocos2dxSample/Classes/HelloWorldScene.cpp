@@ -1,3 +1,4 @@
+#include <ctime>
 #include "HelloWorldScene.h"
 #include "ui/CocosGUI.h"
 #include "ReproCpp.h"
@@ -89,52 +90,52 @@ bool HelloWorld::init()
                                                      CC_CALLBACK_1(HelloWorld::repro_setUserID, this)),
                                MenuItemLabel::create(Label::createWithTTF("setUserProfile", "Marker Felt.ttf", 30),
                                                      CC_CALLBACK_1(HelloWorld::repro_setUserProfile, this)),
+                               MenuItemLabel::create(Label::createWithTTF("setUserGender", "Marker Felt.ttf", 30),
+                                                     CC_CALLBACK_1(HelloWorld::repro_setUserGender, this)),
+                               MenuItemLabel::create(Label::createWithTTF("setUserEmailAddress", "Marker Felt.ttf", 30),
+                                                     CC_CALLBACK_1(HelloWorld::repro_setUserEmailAddress, this)),
                                MenuItemLabel::create(Label::createWithTTF("track", "Marker Felt.ttf", 30),
                                                      CC_CALLBACK_1(HelloWorld::repro_track, this)),
                                MenuItemLabel::create(Label::createWithTTF("trackWithProperties", "Marker Felt.ttf", 30),
                                                      CC_CALLBACK_1(HelloWorld::repro_trackWithProperties, this)),
+                               MenuItemLabel::create(Label::createWithTTF("RemoteConfig setDefaults", "Marker Felt.ttf", 30),
+                                                     CC_CALLBACK_1(HelloWorld::repro_remoteConfigSetDefaults, this)),
                                MenuItemLabel::create(Label::createWithTTF("crash", "Marker Felt.ttf", 30),
                                                      CC_CALLBACK_1(HelloWorld::repro_crash, this)),
                                NULL);
-    
+
     pMenu->setPosition(Vec2(s.width*0.5, s.height*0.5));
     pMenu->alignItemsVerticallyWithPadding(10);
     this->addChild(pMenu);
-    
-    auto pLabelDebug = Label::createWithTTF("setLogLevel : Debug", "Marker Felt.ttf", 30);
-    auto pBtnItemDebug = MenuItemLabel::create(pLabelDebug, CC_CALLBACK_1(HelloWorld::repro_setLoglevel, this));
-    pBtnItemDebug->setTag(1);
-    auto pLabelInfo = Label::createWithTTF("setLogLevel : Info", "Marker Felt.ttf", 30);
-    auto pBtnItemInfo = MenuItemLabel::create(pLabelInfo, CC_CALLBACK_1(HelloWorld::repro_setLoglevel, this));
-    pBtnItemInfo->setTag(2);
-    auto pLabelWarn = Label::createWithTTF("setLogLevel : Warn", "Marker Felt.ttf", 30);
-    auto pBtnItemWarn = MenuItemLabel::create(pLabelWarn, CC_CALLBACK_1(HelloWorld::repro_setLoglevel, this));
-    pBtnItemWarn->setTag(3);
-    auto pLabelError = Label::createWithTTF("setLogLevel : Error", "Marker Felt.ttf", 30);
-    auto pBtnItemError = MenuItemLabel::create(pLabelError, CC_CALLBACK_1(HelloWorld::repro_setLoglevel, this));
-    pBtnItemError->setTag(4);
-    auto pLabelNone = Label::createWithTTF("setLogLevel : None", "Marker Felt.ttf", 30);
-    auto pBtnItemNone = MenuItemLabel::create(pLabelNone, CC_CALLBACK_1(HelloWorld::repro_setLoglevel, this));
-    pBtnItemNone->setTag(5);
-    auto pLabelInAppMessage = Label::createWithTTF("In-AppMessage", "Marker Felt.ttf", 30);
-    auto pBtnItemInAppMessage = MenuItemLabel::create(pLabelInAppMessage, CC_CALLBACK_1(HelloWorld::repro_showInAppMessage, this));
-    pBtnItemNone->setTag(6);
-    auto pLabelDisableShowInAppMessageOnActive = Label::createWithTTF("DisableShowInAppMessageOnActive", "Marker Felt.ttf", 30);
-    auto pBtnItemDisableShowInAppMessageOnActive = MenuItemLabel::create(pLabelDisableShowInAppMessageOnActive, CC_CALLBACK_1(HelloWorld::repro_disableInAppMessageOnActive, this));
-    pBtnItemNone->setTag(7);
-    auto pLabelSetPushRegistrationID = Label::createWithTTF("SetPushRegistrationID", "Marker Felt.ttf", 30);
-    auto pBtnItemSetPushRegistrationID = MenuItemLabel::create(pLabelSetPushRegistrationID, CC_CALLBACK_1(HelloWorld::repro_setPushRegistrationID, this));
-    pBtnItemNone->setTag(8);
 
-    Menu* pMenu2 = Menu::create(pBtnItemDebug,
-                                pBtnItemInfo,
-                                pBtnItemWarn,
-                                pBtnItemError,
-                                pBtnItemNone,
-                                pBtnItemInAppMessage,
-                                pBtnItemDisableShowInAppMessageOnActive,
-                                pBtnItemSetPushRegistrationID,
+    Menu* pMenu2 = Menu::create(MenuItemLabel::create(Label::createWithTTF("setLogLevel : Debug", "Marker Felt.ttf", 30),
+                                                      CC_CALLBACK_1(HelloWorld::repro_setLoglevel, this)),
+                                MenuItemLabel::create(Label::createWithTTF("setLogLevel : Info", "Marker Felt.ttf", 30),
+                                                      CC_CALLBACK_1(HelloWorld::repro_setLoglevel, this)),
+                                MenuItemLabel::create(Label::createWithTTF("setLogLevel : Warn", "Marker Felt.ttf", 30),
+                                                      CC_CALLBACK_1(HelloWorld::repro_setLoglevel, this)),
+                                MenuItemLabel::create(Label::createWithTTF("setLogLevel : Error", "Marker Felt.ttf", 30),
+                                                      CC_CALLBACK_1(HelloWorld::repro_setLoglevel, this)),
+                                MenuItemLabel::create(Label::createWithTTF("setLogLevel : None", "Marker Felt.ttf", 30),
+                                                      CC_CALLBACK_1(HelloWorld::repro_setLoglevel, this)),
+                                MenuItemLabel::create(Label::createWithTTF("enableInAppMessages", "Marker Felt.ttf", 30),
+                                                      CC_CALLBACK_1(HelloWorld::repro_enableInAppMessagesOnForegroundTransition, this)),
+                                MenuItemLabel::create(Label::createWithTTF("disableInAppMessages", "Marker Felt.ttf", 30),
+                                                      CC_CALLBACK_1(HelloWorld::repro_disableInAppMessagesOnForegroundTransition, this)),
+                                MenuItemLabel::create(Label::createWithTTF("SetPushRegistrationID", "Marker Felt.ttf", 30),
+                                                      CC_CALLBACK_1(HelloWorld::repro_setPushRegistrationID, this)),
+                                MenuItemLabel::create(Label::createWithTTF("setSilverEggCookie", "Marker Felt.ttf", 30),
+                                                      CC_CALLBACK_1(HelloWorld::repro_setSilverEggCookie, this)),
+                                MenuItemLabel::create(Label::createWithTTF("setSilverEggProdKey", "Marker Felt.ttf", 30),
+                                                      CC_CALLBACK_1(HelloWorld::repro_setSilverEggProdKey, this)),
+                                MenuItemLabel::create(Label::createWithTTF("Try SilverEgg", "Marker Felt.ttf", 30),
+                                                      CC_CALLBACK_1(HelloWorld::repro_trySilverEgg, this)),
+                                MenuItemLabel::create(Label::createWithTTF("getNewsFeeds", "Marker Felt.ttf", 30),
+                                                      CC_CALLBACK_1(HelloWorld::repro_getNewsFeeds, this)),
+                                MenuItemLabel::create(Label::createWithTTF("updateNewsFeeds", "Marker Felt.ttf", 30),
+                                                      CC_CALLBACK_1(HelloWorld::repro_updateNewsFeeds, this)),
                                 NULL);
+
     pMenu2->setPosition(Vec2(150, s.height*0.5));
     pMenu2->alignItemsVerticallyWithPadding(10);
     this->addChild(pMenu2);
@@ -240,10 +241,22 @@ void HelloWorld::repro_setUserProfile(Ref* pSender)
     ReproCpp::setStringUserProfile("Job", "Software Engineer");
 }
 
+void HelloWorld::repro_setUserGender(Ref* pSender)
+{
+    log("setUserGender");
+    ReproCpp::setUserGender(ReproCpp::UserProfileGenderFemale);
+}
+
+void HelloWorld::repro_setUserEmailAddress(Ref* pSender)
+{
+    log("setUserEmailAddress");
+    ReproCpp::setUserEmailAddress("hoge@repro.io");
+}
+
 void HelloWorld::repro_track(Ref* pSender)
 {
     log("track");
-    ReproCpp::track("eventName1");
+    ReproCpp::track("ManualTrack");
 }
 
 void HelloWorld::repro_trackWithProperties(Ref* pSender)
@@ -258,16 +271,16 @@ void HelloWorld::repro_crash(Ref* pSender)
     abort();
 }
 
-void HelloWorld::repro_disableInAppMessageOnActive(Ref* pSender)
+void HelloWorld::repro_disableInAppMessagesOnForegroundTransition(Ref* pSender)
 {
-    log("disableInAppMessageOnActive");
-    ReproCpp::disableInAppMessageOnActive();
+    log("disableInAppMessagesOnForegroundTransition");
+    ReproCpp::disableInAppMessagesOnForegroundTransition();
 }
 
-void HelloWorld::repro_showInAppMessage(Ref* pSender)
+void HelloWorld::repro_enableInAppMessagesOnForegroundTransition(Ref* pSender)
 {
-    log("showInAppMessage");
-    ReproCpp::showInAppMessage();
+    log("enableInAppMessagesOnForegroundTransition");
+    ReproCpp::enableInAppMessagesOnForegroundTransition();
 }
 
 void HelloWorld::repro_setPushRegistrationID(Ref* pSender)
@@ -409,3 +422,101 @@ void HelloWorld::repro_completeRegistration(Ref* pSender) {
 
     ReproCpp::trackCompleteRegistration(&properties);
 }
+
+void HelloWorld::repro_setSilverEggCookie(Ref* pSender) {
+    log("setSilverEggCookie");
+    ReproCpp::setSilverEggCookie("dummy cookie");
+}
+
+void HelloWorld::repro_setSilverEggProdKey(Ref* pSender) {
+    log("setSilverEggProdKey");
+    ReproCpp::setSilverEggProdKey("dummy prod key");
+}
+
+void HelloWorld::repro_trySilverEgg(Ref* pSender) {
+    log("setSilverEggProdKey");
+
+    ReproCpp::setSilverEggCookie("dummy_cookie");
+    ReproCpp::setSilverEggProdKey("product_id");
+
+    ReproCpp::setup("YOUR_APP_TOKEN");
+
+    ReproCpp::trackWithProperties("ManualTrack", R"({"product_id": "abc123"})");
+}
+
+void HelloWorld::repro_getNewsFeeds(Ref* pSender) {
+    log("getNewsFeeds");
+    bool error;
+    std::vector<ReproCpp::NewsFeedEntry> newsFeeds = ReproCpp::getNewsFeeds(20, &error);
+
+    for (auto iter = newsFeeds.begin(); iter != newsFeeds.end(); iter++) {
+        ReproCpp::NewsFeedEntry entry = *iter;
+        struct tm *tm;
+        char timeString[100];
+
+        log("%lld", entry.getID());
+        log("%s", entry.getDeviceID());
+        log("%s", entry.getTitle());
+        log("%s", entry.getBody());
+        log("%s", entry.getSummary());
+        log("read %d, shown %d", entry.getRead(), entry.getShown());
+        log("%s", entry.getImageUrl());
+        log("%s", entry.getLinkUrl());
+
+        time_t t = entry.getDeliveredAt();
+        tm = localtime(&t);
+        std::strftime(timeString, sizeof(timeString),"%Y-%m-%d %H:%I:%S", tm);
+        log("%s", timeString);
+        log("=====================");
+    }
+}
+
+void HelloWorld::repro_updateNewsFeeds(Ref* pSender) {
+    log("updateNewsFeeds");
+    bool error;
+    std::vector<ReproCpp::NewsFeedEntry> newsFeeds = ReproCpp::getNewsFeeds(20, 4, NULL);
+
+    for (auto iter = newsFeeds.begin(); iter != newsFeeds.end(); iter++) {
+        ReproCpp::NewsFeedEntry entry = *iter;
+        entry.setRead(true);
+    }
+
+    ReproCpp::updateNewsFeeds(newsFeeds, &error);
+}
+
+void HelloWorld::repro_remoteConfigSetDefaults(Ref* pSender) {
+    log("remoteConfigSetDefaults");
+    ReproCpp::RemoteConfig remoteConfig = ReproCpp::getRemoteConfig();
+
+    std::map<std::string, std::string> defaults;
+
+    defaults["key1"] = "def1";
+    defaults["key2"] = "def2";
+    remoteConfig.setDefaultsFromMap(defaults);
+
+    remoteConfig.getAllValuesWithPrefix("color");
+
+    log("key1 %s", remoteConfig.get("key1").getStringValue());
+    log("local key1 %s", remoteConfig.getLocalDefaultValue("key1").getStringValue());
+
+    remoteConfig.fetch(10, [](ReproCpp::RemoteConfig::FetchStatus status) {
+        switch (status) {
+            case ReproCpp::RemoteConfig::FetchStatusSuccess: {
+                    log("fetch result: FetchStatusSuccess");
+                    bool activated = ReproCpp::getRemoteConfig().activateFetched();
+                    log("activated : %d", activated);
+
+                    ReproCpp::getRemoteConfig().forceReset();
+                    log("after reset : key1 %s", ReproCpp::getRemoteConfig().get("key1").getStringValue());
+                }
+                break;
+            case ReproCpp::RemoteConfig::FetchStatusAlreadyFetched:
+                log("fetch result: FetchStatusAlreadyFetched");
+                break;
+            case ReproCpp::RemoteConfig::FetchStatusTimeoutReached:
+                log("fetch result: FetchStatusTimeoutReached");
+                break;
+        }
+    });
+}
+

@@ -34,6 +34,8 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
                    ../../../Classes/HelloWorldScene.cpp \
                    ../../../Repro/ReproCpp.cpp \
                    ../../../Repro/ReproConverterAndroid.cpp \
+                   ../../../Repro/NewsFeed/NewsFeedEntry.cpp \
+                   ../../../Repro/RemoteConfig/RemoteConfig.cpp \
                    ../../../Repro/Properties/StandardEventProperties.cpp \
                    ../../../Repro/Properties/ViewContentProperties.cpp \
                    ../../../Repro/Properties/SearchProperties.cpp \
