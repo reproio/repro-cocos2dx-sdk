@@ -60,18 +60,14 @@
 		521A8E6519F0C34300D177D7 /* Default-736h@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 521A8E6319F0C34300D177D7 /* Default-736h@3x.png */; };
 		521A8EA919F11F5000D177D7 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 521A8EA819F11F5000D177D7 /* fonts */; };
 		521A8EAA19F11F5000D177D7 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 521A8EA819F11F5000D177D7 /* fonts */; };
-		52B47A471A53D09C004E4C60 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52B47A461A53D09B004E4C60 /* Security.framework */; };
 		8262943E1AAF051F00CB7CF7 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8262943D1AAF051F00CB7CF7 /* Security.framework */; };
 		A60D799324E3724D00EBB715 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A60D799124E3724D00EBB715 /* CFNetwork.framework */; };
 		A60D799F24E3740D00EBB715 /* NewsFeedEntry.mm in Sources */ = {isa = PBXBuildFile; fileRef = A60D799B24E3740D00EBB715 /* NewsFeedEntry.mm */; };
+		A698C1F325C51D27008812B7 /* Repro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6B6294E25C51BF900A8CD99 /* Repro.framework */; };
+		A6B6294F25C51BF900A8CD99 /* Repro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6B6294E25C51BF900A8CD99 /* Repro.framework */; };
 		A6FEFA4F24E9658400A20876 /* RemoteConfig.mm in Sources */ = {isa = PBXBuildFile; fileRef = A6FEFA4E24E9658400A20876 /* RemoteConfig.mm */; };
-		AE00072E1E9CB20C006413CD /* Repro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE00072B1E9CB20C006413CD /* Repro.framework */; };
-		AE00072F1E9CB20C006413CD /* ReproSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = AE00072D1E9CB20C006413CD /* ReproSDKResources.bundle */; };
 		AEE4C6111E8C21C100B97C74 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEE4C6101E8C21C100B97C74 /* CoreMedia.framework */; };
-		AEE4C6131E8C21C800B97C74 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEE4C6121E8C21C800B97C74 /* CoreTelephony.framework */; };
 		AEE4C6151E8C21CF00B97C74 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEE4C6141E8C21CF00B97C74 /* CoreVideo.framework */; };
-		AEE4C6171E8C21D500B97C74 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEE4C6161E8C21D500B97C74 /* MobileCoreServices.framework */; };
-		AEE4C6191E8C21DD00B97C74 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEE4C6181E8C21DD00B97C74 /* Security.framework */; };
 		AEE4C61B1E8C21E300B97C74 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEE4C61A1E8C21E300B97C74 /* SystemConfiguration.framework */; };
 		AEEA28641E8D7C47003E63F1 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEEA28611E8D799E003E63F1 /* UserNotifications.framework */; };
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
@@ -83,7 +79,6 @@
 		D6B0611B1803AB670077942B /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6B0611A1803AB670077942B /* CoreMotion.framework */; };
 		E836B69921475C0600C7E21A /* ReproConverterIOS.mm in Sources */ = {isa = PBXBuildFile; fileRef = E836B69721475C0600C7E21A /* ReproConverterIOS.mm */; };
 		E836B69C2147636100C7E21A /* ReproConverterIOSTest.mm in Sources */ = {isa = PBXBuildFile; fileRef = E836B6862147597900C7E21A /* ReproConverterIOSTest.mm */; };
-		E836B69D2147645E00C7E21A /* Repro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE00072B1E9CB20C006413CD /* Repro.framework */; };
 		E836B69E21477EFF00C7E21A /* ReproConverterIOS.mm in Sources */ = {isa = PBXBuildFile; fileRef = E836B69721475C0600C7E21A /* ReproConverterIOS.mm */; };
 		E836B6A32147BADD00C7E21A /* ReproCpp.mm in Sources */ = {isa = PBXBuildFile; fileRef = E849F53A214122DD0005E52B /* ReproCpp.mm */; };
 		E849F545214122DD0005E52B /* ReproCpp.mm in Sources */ = {isa = PBXBuildFile; fileRef = E849F53A214122DD0005E52B /* ReproCpp.mm */; };
@@ -216,9 +211,8 @@
 		8262943D1AAF051F00CB7CF7 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		A60D799124E3724D00EBB715 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		A60D799B24E3740D00EBB715 /* NewsFeedEntry.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = NewsFeedEntry.mm; sourceTree = "<group>"; };
+		A6B6294E25C51BF900A8CD99 /* Repro.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Repro.framework; sourceTree = "<group>"; };
 		A6FEFA4E24E9658400A20876 /* RemoteConfig.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = RemoteConfig.mm; path = ../../Repro/RemoteConfig/RemoteConfig.mm; sourceTree = "<group>"; };
-		AE00072B1E9CB20C006413CD /* Repro.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Repro.framework; sourceTree = "<group>"; };
-		AE00072D1E9CB20C006413CD /* ReproSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ReproSDKResources.bundle; sourceTree = "<group>"; };
 		AE1675651E8E498600C904AA /* NotificationService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationService.h; sourceTree = "<group>"; };
 		AE1675661E8E498600C904AA /* NotificationService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationService.m; sourceTree = "<group>"; };
 		AE1675681E8E498600C904AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -279,20 +273,15 @@
 				5152CCEB235DB3E5001FEDFB /* WebKit.framework in Frameworks */,
 				AEEA28641E8D7C47003E63F1 /* UserNotifications.framework in Frameworks */,
 				AEE4C61B1E8C21E300B97C74 /* SystemConfiguration.framework in Frameworks */,
-				AEE4C6191E8C21DD00B97C74 /* Security.framework in Frameworks */,
-				AEE4C6171E8C21D500B97C74 /* MobileCoreServices.framework in Frameworks */,
 				AEE4C6151E8C21CF00B97C74 /* CoreVideo.framework in Frameworks */,
-				AEE4C6131E8C21C800B97C74 /* CoreTelephony.framework in Frameworks */,
 				AEE4C6111E8C21C100B97C74 /* CoreMedia.framework in Frameworks */,
 				294D0D641D0D56D500F7F5D4 /* CoreText.framework in Frameworks */,
 				ED545A7C1B68A1F400C3958E /* libiconv.dylib in Frameworks */,
-				52B47A471A53D09C004E4C60 /* Security.framework in Frameworks */,
 				1AC6FB30180E99EB004C840B /* libcocos2d iOS.a in Frameworks */,
 				D6B0611B1803AB670077942B /* CoreMotion.framework in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */,
-				AE00072E1E9CB20C006413CD /* Repro.framework in Frameworks */,
 				BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */,
 				A60D799324E3724D00EBB715 /* CFNetwork.framework in Frameworks */,
 				BF1712471292920000B8313A /* libz.dylib in Frameworks */,
@@ -300,6 +289,7 @@
 				D44C620C132DFF330009C878 /* OpenAL.framework in Frameworks */,
 				D44C620E132DFF430009C878 /* AVFoundation.framework in Frameworks */,
 				D44C6210132DFF4E0009C878 /* AudioToolbox.framework in Frameworks */,
+				A6B6294F25C51BF900A8CD99 /* Repro.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -326,7 +316,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E836B69D2147645E00C7E21A /* Repro.framework in Frameworks */,
+				A698C1F325C51D27008812B7 /* Repro.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -374,7 +364,6 @@
 				E836B6842147596000C7E21A /* tests */,
 				E8C03669214110A000544181 /* Plugins */,
 				AEEA28631E8D7AEE003E63F1 /* Cocos2dxSample-mobile.entitlements */,
-				AE00072A1E9CB20C006413CD /* Repro.embeddedframework */,
 				46880B8319C43A87006E1F66 /* Classes */,
 				46880B7519C43A67006E1F66 /* Resources */,
 				1AC6FAE5180E9839004C840B /* cocos2d_libs.xcodeproj */,
@@ -391,6 +380,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A6B6294E25C51BF900A8CD99 /* Repro.framework */,
 				A60D799124E3724D00EBB715 /* CFNetwork.framework */,
 				5152CCEA235DB3E5001FEDFB /* WebKit.framework */,
 				AEEA28611E8D799E003E63F1 /* UserNotifications.framework */,
@@ -511,23 +501,6 @@
 				A6FEFA4E24E9658400A20876 /* RemoteConfig.mm */,
 			);
 			path = RemoteConfig;
-			sourceTree = "<group>";
-		};
-		AE00072A1E9CB20C006413CD /* Repro.embeddedframework */ = {
-			isa = PBXGroup;
-			children = (
-				AE00072B1E9CB20C006413CD /* Repro.framework */,
-				AE00072C1E9CB20C006413CD /* Resources */,
-			);
-			path = Repro.embeddedframework;
-			sourceTree = "<group>";
-		};
-		AE00072C1E9CB20C006413CD /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				AE00072D1E9CB20C006413CD /* ReproSDKResources.bundle */,
-			);
-			path = Resources;
 			sourceTree = "<group>";
 		};
 		AE1675641E8E498600C904AA /* NotificationServiceExtenstionExample */ = {
@@ -772,7 +745,6 @@
 				5087E78417EB970100C73F5D /* Icon-57.png in Resources */,
 				5087E77E17EB970100C73F5D /* Default.png in Resources */,
 				521A8E6419F0C34300D177D7 /* Default-667h@2x.png in Resources */,
-				AE00072F1E9CB20C006413CD /* ReproSDKResources.bundle in Resources */,
 				46880B7B19C43A67006E1F66 /* CloseNormal.png in Resources */,
 				50EF629717ECD46A001EB2F8 /* Icon-58.png in Resources */,
 			);
@@ -881,7 +853,7 @@
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Repro.embeddedframework",
+					"$(PROJECT_DIR)",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
@@ -924,7 +896,7 @@
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Repro.embeddedframework",
+					"$(PROJECT_DIR)",
 				);
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1109,7 +1081,7 @@
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Repro.embeddedframework",
+					"$(PROJECT_DIR)",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -1174,7 +1146,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Repro.embeddedframework",
+					"$(PROJECT_DIR)",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
