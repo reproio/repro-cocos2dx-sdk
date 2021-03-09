@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<manifest xmlns="http://tizen.org/ns/packages" api-version="2.3" package="io.repro.cocos2dx.v3.sample" version="1.0.0">
-    <ui-application appid="io.repro.cocos2dx.v3.sample" exec="hellocpp" multiple="false" nodisplay="false" taskmanage="true" type="capp">
-        <label>Cocos2dxSample</label>
-        <icon>Cocos2dxSample.png</icon>
-    </ui-application>
-</manifest>
